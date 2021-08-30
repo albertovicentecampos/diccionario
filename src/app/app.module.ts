@@ -59,6 +59,11 @@ import { ListadoEspanolComponent } from './espanol/infraestructure/listado-espan
 import { NuevaEspanolComponent } from './espanol/infraestructure/nueva-espanol/nueva-espanol.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { SearchPipe } from './shared/pipes/search.pipe';
+//import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+//import {MatDialogRef} from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -68,16 +73,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
     InicioEspanolComponent,
     ListadoEspanolComponent,
-    NuevaEspanolComponent
+    NuevaEspanolComponent,
+    SearchPipe
   ],
   imports: [
-
     FormsModule,
     ReactiveFormsModule, 
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-
+    HttpClientModule,
 
     A11yModule,
     ClipboardModule,
@@ -126,7 +131,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule, 
 
     EspanolModule, 
-    InglesModule
+    InglesModule,
+
+    //MatDialog,
+    //MatDialogRef
   ],
   providers: [],
   bootstrap: [AppComponent]

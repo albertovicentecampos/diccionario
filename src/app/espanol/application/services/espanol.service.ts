@@ -11,12 +11,25 @@ export class EspanolService {
 
   private url: string = environment.url;
   private todos: string = "/espanol/"
+  private add: string = "/espanol"
 
   constructor(private http: HttpClient) {
 
   }
 
-  getPersona(): Observable<Espanol[]>{
+  getPalabras(): Observable<Espanol[]>{
     return this.http.get<Espanol[]>(this.url+this.todos)
+  }
+
+  // getPalabra(palabra: string){
+  //   let palabras: Espanol[] = []
+  //   this.getPalabras().subscribe( p => {
+  //     palabras = p
+  //     let pal = palabras.filter(p => p.palabra === palabra)
+  //   })
+  // }
+
+  insertar(palabra: Espanol): Observable<Espanol>{
+    return this.http.post<Espanol>(this.url+this.add, palabra);
   }
 }
