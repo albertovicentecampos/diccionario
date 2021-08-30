@@ -46,8 +46,8 @@ export class ListadoEspanolComponent implements OnInit {
 
   }
 
-  borrar(){
-    
+  borrar(palabra: string){
+    this.espanolService.delete(palabra).subscribe()
   }
 
 

@@ -32,4 +32,8 @@ export class EspanolService {
   insertar(palabra: Espanol): Observable<Espanol>{
     return this.http.post<Espanol>(this.url+this.add, palabra);
   }
+
+  delete(palabra: string): Observable<Espanol> {
+    return this.http.delete<Espanol>(this.url+this.todos+palabra);
+  }
 }
