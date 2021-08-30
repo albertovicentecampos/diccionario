@@ -61,6 +61,7 @@ import { NuevaEspanolComponent } from './espanol/infraestructure/nueva-espanol/n
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchPipe } from './shared/pipes/search.pipe';
+import { BusquedaEspanolComponent } from './espanol/infraestructure/busqueda-espanol/busqueda-espanol.component';
 //import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 //import {MatDialogRef} from '@angular/material/dialog';
 
@@ -74,7 +75,8 @@ import { SearchPipe } from './shared/pipes/search.pipe';
     InicioEspanolComponent,
     ListadoEspanolComponent,
     NuevaEspanolComponent,
-    SearchPipe
+    SearchPipe,
+    BusquedaEspanolComponent
   ],
   imports: [
     FormsModule,

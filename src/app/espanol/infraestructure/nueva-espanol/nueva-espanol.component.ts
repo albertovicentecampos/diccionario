@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 
 import { Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 import { EspanolService } from '../../application/services/espanol.service';
 import { Espanol, inicializar } from '../../model/espanol';
@@ -28,7 +29,8 @@ export class NuevaEspanolComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<NuevaEspanolComponent>,
-    public espanolService: EspanolService) { }
+    public espanolService: EspanolService,
+    public route: Router) { }
   
 
   ngOnInit(): void {
@@ -44,6 +46,8 @@ export class NuevaEspanolComponent implements OnInit {
     this.espanolService.insertar(this.palabra).subscribe(c=>{
       this.palabra  = c;
       console.log("insertada")
+      this.dialogRef.close();
+    this.route.navigate(["/palabras"])
       //this.palabraInsertada.emit(this.palabra)
     })
   }

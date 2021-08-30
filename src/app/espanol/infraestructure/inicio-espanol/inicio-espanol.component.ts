@@ -1,7 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Router, RouterLink } from '@angular/router';
 
 import { Espanol, inicializar } from '../../model/espanol';
+import { BusquedaEspanolComponent } from '../busqueda-espanol/busqueda-espanol.component';
 import { NuevaEspanolComponent } from '../nueva-espanol/nueva-espanol.component';
 
 @Component({
@@ -14,6 +16,7 @@ export class InicioEspanolComponent implements OnInit {
 
   constructor(
      public dialog: MatDialog,
+     private route: Router
      //public dialogRef: MatDialogRef<NuevaEspanolComponent>
     ) { }
 
@@ -40,4 +43,21 @@ export class InicioEspanolComponent implements OnInit {
   //   this.dialogRef.close(this.palabra);
   // }
 
+  lista(){
+    this.route.navigate(['/palabras'])
+  }
+
+  busqueda(){
+    const dialogRef = this.dialog.open(BusquedaEspanolComponent, {
+      height: '300px',
+      width: '500px',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        //this.palabras.push(result)
+      }
+    });
+  }
 }
