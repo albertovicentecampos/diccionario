@@ -50,7 +50,7 @@ export class EditarEspanolComponent implements OnInit {
   }
 
   goBack() {
-    this.route.navigate(['/palabraslista']);
+    this.route.navigate(['espanol/palabraslista']);
     }
 
 }

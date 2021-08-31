@@ -36,7 +36,7 @@ export class PalabraEspanolComponent implements OnInit {
   }
 
   editar(): void {
-    this.route.navigate(['/editar', this.palabra.palabra])
+    this.route.navigate(['espanol/editar', this.palabra.palabra])
   }
 
   eliminar(): void {

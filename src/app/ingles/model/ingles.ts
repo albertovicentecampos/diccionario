@@ -1,4 +1,3 @@
-import { Espanol } from "src/app/espanol/model/espanol";
 
 export interface Ingles { 
     id: number; 
@@ -6,5 +5,4 @@ export interface Ingles {
     palabraEspanol: string; 
     fechaAlta: Date; 
     fechaModificacion: Date; 
-    //Falta la lista de palabras en español 
 }

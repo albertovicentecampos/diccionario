@@ -18,13 +18,13 @@ const routes: Routes = [
     path: 'palabras', component: ListadoEspanolComponent
   },
   {
-    path: 'palabraslista', component: ListaEspanolComponent
+    path: 'espanol/palabraslista', component: ListaEspanolComponent
   },
   {
-    path: 'palabra/:p', component: BusquedaEspanolComponent
+    path: 'espanol/palabra/:p', component: BusquedaEspanolComponent
   },
   {
-    path: 'editar/:p', component: EditarEspanolComponent
+    path: 'espanol/editar/:p', component: EditarEspanolComponent
   }
 ];
 

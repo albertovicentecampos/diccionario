@@ -60,7 +60,7 @@ export class InicioEspanolComponent implements OnInit {
   }
 
   listaa() {
-    this.route.navigate(['/palabraslista'])
+    this.route.navigate(['espanol/palabraslista'])
   }
 
   busqueda() {
@@ -76,7 +76,7 @@ export class InicioEspanolComponent implements OnInit {
         valor = true; 
         this.mensaje("Palabra encontrada")
         console.log("RESULTADO: " + p)
-        this.route.navigate(['/palabra', this.pal.palabra])
+        this.route.navigate(['espanol/palabra', this.pal.palabra])
       })
       console.log(this.pal)
       if (!valor) {

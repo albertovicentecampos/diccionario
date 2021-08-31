@@ -51,7 +51,7 @@ export class NuevaEspanolComponent implements OnInit {
         this.palabra = c;
         console.log("insertada")
         this.dialogRef.close();
-        this.route.navigate(["/palabraslista"])
+        this.route.navigate(["espanol/palabraslista"])
         //this.palabraInsertada.emit(this.palabra)
       })
     }
