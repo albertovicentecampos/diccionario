@@ -5,10 +5,18 @@
     <mat-card-subtitle>
         {{palabra.descripcion}}
     </mat-card-subtitle>
-    PALABRAS INGLÉS
     <mat-card-subtitle>
-        <div class="example-element-description" *ngFor="let p of palabrasIng">- {{p.palabra}}</div>
+        FECHA DE CREACIÓN: {{palabra.fechaAlta}}
     </mat-card-subtitle>
+    <mat-card-subtitle>
+        ÚLTIMA MODIFICACION: {{palabra.fechaModificacion}}
+    </mat-card-subtitle>
+    <div>
+        PALABRAS INGLÉS
+        <mat-card-subtitle>
+            <div class="example-element-description" *ngFor="let p of palabrasIng">- {{p.palabra}}</div>
+        </mat-card-subtitle>
+    </div>
     <mat-card-actions>
         <button mat-raised-button color="#264D73" (click)="editar()">EDITAR</button>
         <button mat-raised-button color="warn" class="eliminar" (click)="eliminar()">ELIMINAR</button>

@@ -1,3 +1,5 @@
+<button mat-raised-button (click)="goBack()">Volver</button>
+
 <mat-form-field>
   <mat-label>Buscar</mat-label>
   <input matInput (keyup)="filtrar($event)" placeholder="buscar">
@@ -5,6 +7,13 @@
 
 
 <div>PALABRAS</div>
-<div *ngFor="let p of palabras | search:filtrovalor">
-  <app-palabra-espanol (borrar)="recibirEliminar($event)" [palabra]="p"></app-palabra-espanol>
+<div *ngIf="palabras.length > 0 else nopeople">
+  <div *ngFor="let p of palabras | search:filtrovalor">
+    <app-palabra-espanol (borrar)="recibirEliminar($event)" [palabra]="p"></app-palabra-espanol>
+  </div>
 </div>
+
+
+<ng-template #nopeople>
+  <h2>No existen personas para mostrar</h2>
+</ng-template>

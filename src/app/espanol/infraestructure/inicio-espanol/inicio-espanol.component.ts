@@ -62,7 +62,6 @@ export class InicioEspanolComponent implements OnInit {
 
   busqueda() {
     console.log(this.registerForm.value.buscar)
-
     this.espanolService.buscar(this.registerForm.value.buscar).subscribe(p => {
       this.pal = p; 
       console.log(this.pal.palabra)

@@ -14,11 +14,9 @@
                 <mat-label>Palabra * </mat-label>
                 <input matInput type="text" formControlName="palabra" placeholder="Introduzca una palabra">
                 <div class="obligatorio">
-                    <!-- <mat-error>
-                        <span class="form-text text-danger" *ngIf="campoValido('user')"> El nombre de usuario debe de
-                            tener
-                            como mínimo 5 caracteres y como máximo 10</span>
-                    </mat-error> -->
+                    <mat-error>
+                        <span class="form-text text-danger" *ngIf="campoValido('palabra')"> Campo obligatorio </span>
+                    </mat-error>
                 </div>
             </mat-form-field>
             <mat-form-field class="example-form-field" appearance="fill">

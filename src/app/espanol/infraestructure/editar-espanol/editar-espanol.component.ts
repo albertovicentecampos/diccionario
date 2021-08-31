@@ -49,6 +49,8 @@ export class EditarEspanolComponent implements OnInit {
     })
   }
 
-
+  goBack() {
+    this.route.navigate(['/palabraslista']);
+    }
 
 }

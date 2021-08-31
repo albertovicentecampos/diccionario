@@ -1,25 +1,18 @@
-<mat-drawer mode="side" opened>
-    <button mat-raised-button (click)="openDialog()"> NUEVA PALABRA </button>
-</mat-drawer>
-<mat-drawer mode="side" opened>
-    <button mat-raised-button (click)="lista()"> PALABRAS  </button>
-</mat-drawer>
-<mat-drawer mode="side" opened>
-    <button mat-raised-button (click)="listaa()"> PALABRAS 1  </button>
-</mat-drawer>
-<!-- <mat-drawer mode="side" opened>
-    <button mat-raised-button (click)="busqueda()"> BUSCAR PALABRA </button>
-</mat-drawer> -->
+<div class="contenedor">
+    <div>
+        <mat-form-field>
+            <mat-label>Buscar</mat-label>
+            <form [formGroup]="registerForm">
+                <input matInput type="text" formControlName="buscar" placeholder="buscar">
+            </form>
+        </mat-form-field>
+        <button mat-raised-button color="#264D73" (click)="busqueda()">BUSCAR</button>
+    </div>
+    <div>
+        <button mat-raised-button (click)="openDialog()">NUEVA PALABRA</button>
+    </div> 
+    <div>
+        <button mat-raised-button (click)="listaa()">PALABRAS</button>
+    </div>
+</div>
 
-<mat-form-field>
-    <mat-label>Buscar</mat-label>
-    <form [formGroup]="registerForm">
-        <input matInput type="text" formControlName="buscar" placeholder="buscar">
-    </form>
-    
-    <!-- <input matInput (keyup)="buscar($event)" placeholder="buscar"> -->
-</mat-form-field>
-
-<button mat-raised-button color="#264D73" (click)="busqueda()">BUSCAR</button>
-
-<!-- <app-listado-espanol></app-listado-espanol> -->

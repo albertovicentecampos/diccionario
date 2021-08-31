@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EspanolService } from '../../application/services/espanol.service';
 import { Espanol } from '../../model/espanol';
 
@@ -12,7 +13,7 @@ export class ListaEspanolComponent implements OnInit {
   palabras: Espanol[] = [];
   filtrovalor=''
 
-  constructor(private espanolService: EspanolService) { }
+  constructor(private espanolService: EspanolService, private router: Router) { }
 
   ngOnInit(): void {
     this.espanolService.getPalabras().subscribe(p => {
@@ -28,5 +29,9 @@ export class ListaEspanolComponent implements OnInit {
   recibirEliminar($event: number): void{
     this.palabras = this.palabras.filter((palabra: Espanol) => palabra.id !== $event)
   }
+
+  goBack() {
+    this.router.navigate(['/espanol']);
+    }
 
 }
