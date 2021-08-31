@@ -27,7 +27,6 @@ export class PalabraEspanolComponent implements OnInit {
   ngOnInit(): void {
     this.activeRouter.params.subscribe((params: Params) => {
       this.espanolService.buscar(params.p).subscribe(p => {
-
         this.palabra = p;
         this.palabrasIng = this.palabra.palabrasIngles
       })

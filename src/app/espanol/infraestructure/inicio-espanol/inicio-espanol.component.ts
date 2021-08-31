@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, RouterLink } from '@angular/router';
 import { EspanolService } from '../../application/services/espanol.service';
 
@@ -25,7 +26,9 @@ export class InicioEspanolComponent implements OnInit {
     public dialog: MatDialog,
     private route: Router,
     private formBuilder: FormBuilder,
-    private espanolService: EspanolService
+    private espanolService: EspanolService,
+    private matSnackBar: MatSnackBar
+
     //public dialogRef: MatDialogRef<NuevaEspanolComponent>
   ) { }
 
@@ -61,11 +64,31 @@ export class InicioEspanolComponent implements OnInit {
   }
 
   busqueda() {
+    let valor = false;
     console.log(this.registerForm.value.buscar)
-    this.espanolService.buscar(this.registerForm.value.buscar).subscribe(p => {
-      this.pal = p; 
-      console.log(this.pal.palabra)
-      this.route.navigate(['/palabra',this.pal.palabra])
+
+    if (this.registerForm.value.buscar == '') {
+      valor=true;
+      this.mensaje("Escriba una palabra a buscar")
+    } else {
+      this.espanolService.buscar(this.registerForm.value.buscar).subscribe(p => {
+        this.pal = p;
+        valor = true; 
+        this.mensaje("Palabra encontrada")
+        console.log("RESULTADO: " + p)
+        this.route.navigate(['/palabra', this.pal.palabra])
+      })
+      console.log(this.pal)
+      if (!valor) {
+          this.mensaje("Palabra no encontrada")
+        }
+    }
+
+  }
+
+  mensaje(mensaje: string) {
+    this.matSnackBar.open(mensaje, " ", {
+      duration: 3000
     })
   }
 }

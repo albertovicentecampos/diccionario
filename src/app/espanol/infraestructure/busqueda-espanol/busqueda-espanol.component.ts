@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EspanolService } from '../../application/services/espanol.service';
 import { Espanol } from '../../model/espanol';
 
@@ -13,7 +14,7 @@ export class BusquedaEspanolComponent implements OnInit {
   palabraEscrita: string = ' '
   palabra: string = ' '
 
-  constructor(private palabraService: EspanolService) { }
+  constructor(private palabraService: EspanolService, private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -31,4 +32,8 @@ export class BusquedaEspanolComponent implements OnInit {
 
  
    }
+
+   goBack() {
+    this.route.navigate(['/espanol']);
+    }
 }

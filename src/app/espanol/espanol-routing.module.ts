@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListadoInglesComponent } from '../ingles/infraestructure/listado-ingles/listado-ingles.component';
+import { ErrorComponent } from '../shared/error/error.component';
+import { BusquedaEspanolComponent } from './infraestructure/busqueda-espanol/busqueda-espanol.component';
 import { EditarEspanolComponent } from './infraestructure/editar-espanol/editar-espanol.component';
 import { InicioEspanolComponent } from './infraestructure/inicio-espanol/inicio-espanol.component';
 import { ListaEspanolComponent } from './infraestructure/lista-espanol/lista-espanol.component';
@@ -19,7 +21,7 @@ const routes: Routes = [
     path: 'palabraslista', component: ListaEspanolComponent
   },
   {
-    path: 'palabra/:p', component: PalabraEspanolComponent
+    path: 'palabra/:p', component: BusquedaEspanolComponent
   },
   {
     path: 'editar/:p', component: EditarEspanolComponent

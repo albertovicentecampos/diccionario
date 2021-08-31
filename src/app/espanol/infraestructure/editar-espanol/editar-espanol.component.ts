@@ -45,7 +45,7 @@ export class EditarEspanolComponent implements OnInit {
     this.p.palabra = this.palabra
     this.espanolService.editar(this.registerForm.value).subscribe(c => {
       this.p = c;
-      this.route.navigate(["/palabraslista"])
+      this.route.navigate(["/palabra",this.p.palabra])
     })
   }
 
