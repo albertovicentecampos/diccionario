@@ -66,6 +66,12 @@ import { ListaEspanolComponent } from './espanol/infraestructure/lista-espanol/l
 import { PalabraEspanolComponent } from './espanol/infraestructure/palabra-espanol/palabra-espanol.component';
 import { EditarEspanolComponent } from './espanol/infraestructure/editar-espanol/editar-espanol.component';
 import { ErrorComponent } from './shared/error/error.component';
+import { NuevaInglesComponent } from './ingles/infraestructure/nueva-ingles/nueva-ingles.component';
+import { BusquedaInglesComponent } from './ingles/infraestructure/busqueda-ingles/busqueda-ingles.component';
+import { EditarInglesComponent } from './ingles/infraestructure/editar-ingles/editar-ingles.component';
+import { ListaInglesComponent } from './ingles/infraestructure/lista-ingles/lista-ingles.component';
+import { PalabraInglesComponent } from './ingles/infraestructure/palabra-ingles/palabra-ingles.component';
+import { InicioInglesComponent } from './ingles/infraestructure/inicio-ingles/inicio-ingles.component';
 
 //import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 //import {MatDialogRef} from '@angular/material/dialog';
@@ -82,12 +88,17 @@ import { ErrorComponent } from './shared/error/error.component';
     NuevaEspanolComponent,
     SearchPipe,
     BusquedaEspanolComponent,
-
     ListaEspanolComponent,
 
     PalabraEspanolComponent,
     EditarEspanolComponent,
-    ErrorComponent
+    ErrorComponent,
+    InicioInglesComponent,
+    NuevaInglesComponent,
+    BusquedaInglesComponent,
+    EditarInglesComponent,
+    ListaInglesComponent,
+    PalabraInglesComponent
   ],
   imports: [
     FormsModule,

@@ -1,1 +1,17 @@
-<p>inicio-ingles works!</p>
+<div class="contenedor">
+    <div>
+        <mat-form-field>
+            <mat-label>Buscar</mat-label>
+            <form [formGroup]="registerForm">
+                <input matInput type="text" formControlName="buscar" placeholder="buscar">
+            </form>
+        </mat-form-field>
+        <button mat-raised-button color="#264D73" (click)="busqueda()">BUSCAR</button>
+    </div>
+    <div>
+        <button mat-raised-button (click)="openDialog()">NUEVA PALABRA</button>
+    </div> 
+    <div>
+        <button mat-raised-button (click)="listaa()">PALABRAS</button>
+    </div>
+</div>

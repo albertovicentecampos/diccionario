@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { InglesService } from '../../application/services/ingles.service';
+import { Ingles } from '../../model/ingles';
 
 @Component({
   selector: 'app-busqueda-ingles',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusquedaInglesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
+  }
+
+  goBack() {
+    this.route.navigate(['/espanol']);
   }
 
 }

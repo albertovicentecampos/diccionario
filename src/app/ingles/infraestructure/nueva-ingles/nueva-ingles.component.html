@@ -1,1 +1,39 @@
-<p>nueva-ingles works!</p>
+<button class="cerrar" (click)="cancelar()" mat-icon-button>
+    <mat-icon aria-label="Side nav toggle icon">close</mat-icon>
+  </button>
+
+<h1>{{title}}</h1>
+
+<div class="edicion">
+    <form [formGroup]="registerForm">
+        <div class="obligatorio">
+            (*) Campos obligatorios
+        </div>
+        <div class="formulario">
+            <mat-form-field class="example-form-field" appearance="fill">
+                <mat-label>Palabra * </mat-label>
+                <input matInput type="text" formControlName="palabra" placeholder="Introduzca una palabra">
+                <div class="obligatorio">
+                    <mat-error>
+                        <span class="form-text text-danger" *ngIf="campoValido('palabra')"> Campo obligatorio </span>
+                    </mat-error>
+                </div>
+            </mat-form-field>
+            <mat-form-field class="example-form-field" appearance="fill">
+                <mat-label>Palabra Español * </mat-label>
+                <input matInput type="text" formControlName="palabraEspanol" placeholder="Introduzca la palabra correspondiente en Español">
+                <div class="obligatorio">
+                    <!-- <mat-error>
+                        <span class="form-text text-danger" *ngIf="campoValido('user')"> El nombre de usuario debe de
+                            tener
+                            como mínimo 5 caracteres y como máximo 10</span>
+                    </mat-error> -->
+                </div>
+            </mat-form-field>
+        </div>
+        <div class="boton">
+            <button mat-raised-button color="#264D73" (click)="insertar()">Guardar</button>
+        </div>
+
+    </form>
+</div>

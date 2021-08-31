@@ -1,1 +1,19 @@
-<p>lista-ingles works!</p>
+<button mat-raised-button (click)="goBack()">Volver</button>
+
+<mat-form-field>
+  <mat-label>Buscar</mat-label>
+  <input matInput (keyup)="filtrar($event)" placeholder="buscar">
+</mat-form-field>
+
+
+<div>PALABRAS</div>
+<div *ngIf="palabras.length > 0 else nowords">
+  <div *ngFor="let p of palabras | search:filtrovalor">
+    <app-palabra-ingles (borrar)="recibirEliminar($event)" [palabra]="p"></app-palabra-ingles>
+  </div>
+</div>
+
+
+<ng-template #nowords>
+  <h2>No existen palabras para mostrar</h2>
+</ng-template>

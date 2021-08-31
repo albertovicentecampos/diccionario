@@ -11,11 +11,7 @@ import { PalabraInglesComponent } from './infraestructure/palabra-ingles/palabra
 
 @NgModule({
   declarations: [
-    NuevaInglesComponent,
-    BusquedaInglesComponent,
-    EditarInglesComponent,
-    ListaInglesComponent,
-    PalabraInglesComponent
+    
   ],
   imports: [
     CommonModule,

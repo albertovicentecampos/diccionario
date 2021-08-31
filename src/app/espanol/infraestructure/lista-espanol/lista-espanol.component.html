@@ -7,13 +7,13 @@
 
 
 <div>PALABRAS</div>
-<div *ngIf="palabras.length > 0 else nopeople">
+<div *ngIf="palabras.length > 0 else nowords">
   <div *ngFor="let p of palabras | search:filtrovalor">
     <app-palabra-espanol (borrar)="recibirEliminar($event)" [palabra]="p"></app-palabra-espanol>
   </div>
 </div>
 
 
-<ng-template #nopeople>
-  <h2>No existen personas para mostrar</h2>
+<ng-template #nowords>
+  <h2>No existen palabras para mostrar</h2>
 </ng-template>
