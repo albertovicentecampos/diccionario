@@ -22,8 +22,13 @@ export class BusquedaEspanolComponent implements OnInit {
    // this.palabra = document.getElementById("campobusqueda")
     this.palabraEscrita = (event.target as HTMLInputElement).value;
     this.palabraService.buscar(this.palabraEscrita).subscribe(p=>{
-      this.palabras = p;
+     // this.palabras = p;
     })
 
   }
+
+  busqueda(){
+
+ 
+   }
 }

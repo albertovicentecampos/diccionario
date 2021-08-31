@@ -37,7 +37,11 @@ export class EspanolService {
     return this.http.delete<Espanol>(this.url+this.todos+palabra);
   }
 
-  buscar(palabra: string): Observable<Espanol[]> {
-    return this.http.get<Espanol[]>(this.url+this.todos+palabra)
+  buscar(palabra: string): Observable<Espanol> {
+    return this.http.get<Espanol>(this.url+this.todos+palabra);
+  }
+
+  editar(palabra: Espanol): Observable<Espanol> {
+    return this.http.put<Espanol>(this.url+this.todos+palabra.palabra, palabra);
   }
 }

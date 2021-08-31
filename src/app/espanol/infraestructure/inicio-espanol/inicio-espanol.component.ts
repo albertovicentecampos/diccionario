@@ -1,10 +1,14 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router, RouterLink } from '@angular/router';
+import { EspanolService } from '../../application/services/espanol.service';
 
 import { Espanol, inicializar } from '../../model/espanol';
 import { BusquedaEspanolComponent } from '../busqueda-espanol/busqueda-espanol.component';
 import { NuevaEspanolComponent } from '../nueva-espanol/nueva-espanol.component';
+
+
 
 @Component({
   selector: 'app-inicio-espanol',
@@ -13,12 +17,17 @@ import { NuevaEspanolComponent } from '../nueva-espanol/nueva-espanol.component'
 })
 export class InicioEspanolComponent implements OnInit {
   palabra: Espanol = inicializar();
-
+  pal: Espanol;
+  registerForm = this.formBuilder.group({
+    buscar: ['']
+  })
   constructor(
-     public dialog: MatDialog,
-     private route: Router
-     //public dialogRef: MatDialogRef<NuevaEspanolComponent>
-    ) { }
+    public dialog: MatDialog,
+    private route: Router,
+    private formBuilder: FormBuilder,
+    private espanolService: EspanolService
+    //public dialogRef: MatDialogRef<NuevaEspanolComponent>
+  ) { }
 
   ngOnInit(): void {
   }
@@ -43,21 +52,21 @@ export class InicioEspanolComponent implements OnInit {
   //   this.dialogRef.close(this.palabra);
   // }
 
-  lista(){
+  lista() {
     this.route.navigate(['/palabras'])
   }
 
-  busqueda(){
-    const dialogRef = this.dialog.open(BusquedaEspanolComponent, {
-      height: '300px',
-      width: '500px',
-      data: {}
-    });
+  listaa() {
+    this.route.navigate(['/palabraslista'])
+  }
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        //this.palabras.push(result)
-      }
-    });
+  busqueda() {
+    console.log(this.registerForm.value.buscar)
+
+    this.espanolService.buscar(this.registerForm.value.buscar).subscribe(p => {
+      this.pal = p; 
+      console.log(this.pal.palabra)
+      this.route.navigate(['/palabra',this.pal.palabra])
+    })
   }
 }

@@ -62,6 +62,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchPipe } from './shared/pipes/search.pipe';
 import { BusquedaEspanolComponent } from './espanol/infraestructure/busqueda-espanol/busqueda-espanol.component';
+import { ListaEspanolComponent } from './espanol/infraestructure/lista-espanol/lista-espanol.component';
+import { PalabraEspanolComponent } from './espanol/infraestructure/palabra-espanol/palabra-espanol.component';
+import { EditarEspanolComponent } from './espanol/infraestructure/editar-espanol/editar-espanol.component';
 //import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 //import {MatDialogRef} from '@angular/material/dialog';
 
@@ -76,7 +79,12 @@ import { BusquedaEspanolComponent } from './espanol/infraestructure/busqueda-esp
     ListadoEspanolComponent,
     NuevaEspanolComponent,
     SearchPipe,
-    BusquedaEspanolComponent
+    BusquedaEspanolComponent,
+      
+    ListaEspanolComponent,
+
+    PalabraEspanolComponent,
+    EditarEspanolComponent
   ],
   imports: [
     FormsModule,
@@ -137,6 +145,9 @@ import { BusquedaEspanolComponent } from './espanol/infraestructure/busqueda-esp
 
     //MatDialog,
     //MatDialogRef
+  ],
+  exports: [
+    PalabraEspanolComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

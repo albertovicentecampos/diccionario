@@ -15,8 +15,11 @@
 
 <mat-form-field>
     <mat-label>Buscar</mat-label>
-    <input matInput (keyup)="buscar($event)" placeholder="buscar">
+    <input matInput placeholder="buscar">
+    <!-- <input matInput (keyup)="buscar($event)" placeholder="buscar"> -->
 </mat-form-field>
+
+<button mat-raised-button color="#264D73" (click)="busqueda()">BUSCAR</button>
 
 <div *ngIf="palabras.length > 0 else nowords">
     <table>

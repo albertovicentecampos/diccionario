@@ -1,0 +1,10 @@
+<mat-form-field>
+  <mat-label>Buscar</mat-label>
+  <input matInput (keyup)="filtrar($event)" placeholder="buscar">
+</mat-form-field>
+
+
+<div>PALABRAS</div>
+<div *ngFor="let p of palabras | search:filtrovalor">
+  <app-palabra-espanol (borrar)="recibirEliminar($event)" [palabra]="p"></app-palabra-espanol>
+</div>
