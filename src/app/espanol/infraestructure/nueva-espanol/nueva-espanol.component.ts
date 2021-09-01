@@ -43,7 +43,6 @@ export class NuevaEspanolComponent implements OnInit {
   }
 
   insertar(): void {
-
     if (this.registerForm.invalid) {
       return;
     } else {
@@ -55,8 +54,6 @@ export class NuevaEspanolComponent implements OnInit {
         this.route.navigate(["espanol/palabraslista"])
         window.location.reload();
         this.dialogRef.close();
-        
-        //this.palabraInsertada.emit(this.palabra)
       })
     }
   }
