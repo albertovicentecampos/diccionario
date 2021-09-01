@@ -17,6 +17,7 @@ export class NuevaEspanolComponent implements OnInit {
 
   title: string = "NUEVA PALABRA"
   palabra: Espanol = inicializar();
+  //@Output() palabraInsertada: EventEmitter<Espanol> = new EventEmitter();
 
   registerForm = this.formBuilder.group({
     palabra: ['', [Validators.required]],
@@ -49,9 +50,12 @@ export class NuevaEspanolComponent implements OnInit {
       this.palabra = this.registerForm.value;
       this.espanolService.insertar(this.palabra).subscribe(c => {
         this.palabra = c;
+        //this.palabraInsertada.emit(this.palabra)
         console.log("insertada")
-        this.dialogRef.close();
         this.route.navigate(["espanol/palabraslista"])
+        window.location.reload();
+        this.dialogRef.close();
+        
         //this.palabraInsertada.emit(this.palabra)
       })
     }

@@ -17,7 +17,7 @@ export class ListaEspanolComponent implements OnInit {
 
   palabra: Espanol = inicializar()
 
-  constructor(private espanolService: EspanolService, private router: Router,     public dialog: MatDialog,  @Inject(MAT_DIALOG_DATA) public data: Espanol) { }
+  constructor(private espanolService: EspanolService, private router: Router,  public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.espanolService.getPalabras().subscribe(p => {
@@ -47,9 +47,12 @@ export class ListaEspanolComponent implements OnInit {
   
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
+        
+          //this.recibirPadre(result)
           //this.palabras.push(result)
         }
       });
     }
 
+    
 }
