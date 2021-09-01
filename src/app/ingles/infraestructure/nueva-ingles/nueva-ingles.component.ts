@@ -18,6 +18,7 @@ export class NuevaInglesComponent implements OnInit {
   title: string = "NUEVA PALABRA"
   palabra: Ingles = inicializar();
   palabras: string[] = []
+  palabrasEspanol: string[] = []
 
   registerForm = this.formBuilder.group({
     palabra: ['', [Validators.required]],
@@ -32,7 +33,8 @@ export class NuevaInglesComponent implements OnInit {
     public dialogRef: MatDialogRef<NuevaInglesComponent>,
     public inglesService: InglesService,
     public route: Router,
-    private matSnackBar: MatSnackBar) { }
+    private matSnackBar: MatSnackBar,
+    private espanolService: EspanolService) { }
 
 
   ngOnInit(): void {
@@ -57,6 +59,17 @@ export class NuevaInglesComponent implements OnInit {
             alert("La palabra ya existe en el diccionario")
           }
         })
+
+        this.espanolService.getPalabras().subscribe(p=>{
+          for(let i in p){
+            this.palabrasEspanol.push(p[i].palabra)
+          }
+          if(!this.palabrasEspanol.includes(this.palabra.palabraEspanol)){
+            alert("La palabra en español no existe en la base de datos. Se debe de crear primero")
+          }
+        })
+
+
   
       this.palabra = this.registerForm.value;
       this.inglesService.insertar(this.palabra).subscribe(c => {
