@@ -1,24 +1,36 @@
-<mat-card>
-    <mat-card-title>
-        {{palabra.palabra}}
-    </mat-card-title>
-    <mat-card-subtitle>
-        {{palabra.descripcion}}
-    </mat-card-subtitle>
-    <!-- <mat-card-subtitle>
-        FECHA DE CREACIÓN: {{palabra.fechaAlta}}
-    </mat-card-subtitle>
-    <mat-card-subtitle>
-        ÚLTIMA MODIFICACION:{{palabra.fechaModificacion}}
-    </mat-card-subtitle> -->
-    <div>
-        PALABRAS INGLÉS
-        <mat-card-subtitle>
-            <div class="example-element-description" *ngFor="let p of palabrasIng">- {{p.palabra}}</div>
-        </mat-card-subtitle>
+<mat-card class="wrapper descripcion">
+    <div class="card radius shadowDepth1">
+        <div class="card__share">
+            <a id="share" class="share-toggle share-icon-delete" (click)= "eliminar()"></a>
+            <a id="share" class="share-toggle share-icon-modify"(click)= "editar()"></a>
+        </div>
+        <div class="descripcion">
+            <mat-card-title>
+                <h1> <label>{{palabra.palabra}}</label></h1>
+                 <p class="descripcion">{{palabra.descripcion}}</p>
+             </mat-card-title>
+             
+             <mat-card-subtitle>
+
+                <strong>CREACIÓN  </strong>{{palabra.fechaAlta | date:'dd-MM-yyyy HH:mm'}} 
+             </mat-card-subtitle>
+             <mat-card-subtitle>
+                 <strong>ÚLT. MOD.</strong> {{palabra.fechaModificacion | date:'dd-MM-yyyy HH:mm' }} 
+             </mat-card-subtitle>
+             <div class="borde" style="margin: 10px;" *ngIf="palabrasIng.length > 0">
+                <strong>PALABRAS INGLÉS</strong> 
+                 <mat-card-subtitle>
+                     <div class="example-element-description" *ngFor="let p of palabrasIng">
+                        <p style="margin: 10px;">{{p.palabra}}</p> 
+                    </div>
+                 </mat-card-subtitle>
+             </div>
+        </div>
+        
+        <!-- <mat-card-actions>
+            <button mat-raised-button color="#264D73" (click)="editar()">EDITAR</button>
+            <button mat-raised-button color="warn" class="eliminar" (click)="eliminar()">ELIMINAR</button>
+        </mat-card-actions> -->
     </div>
-    <mat-card-actions>
-        <button mat-raised-button color="#264D73" (click)="editar()">EDITAR</button>
-        <button mat-raised-button color="warn" class="eliminar" (click)="eliminar()">ELIMINAR</button>
-    </mat-card-actions>
+
 </mat-card>

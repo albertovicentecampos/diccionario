@@ -153,6 +153,7 @@ import { InicioInglesComponent } from './ingles/infraestructure/inicio-ingles/in
     PortalModule,
     ScrollingModule,
     BrowserAnimationsModule,
+    MatAutocompleteModule,
 
     EspanolModule,
     InglesModule,

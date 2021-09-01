@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { EspanolService } from '../../application/services/espanol.service';
-import { Espanol } from '../../model/espanol';
+import { Espanol, inicializar } from '../../model/espanol';
+import { NuevaEspanolComponent } from '../nueva-espanol/nueva-espanol.component';
 
 @Component({
   selector: 'app-lista-espanol',
@@ -13,7 +15,9 @@ export class ListaEspanolComponent implements OnInit {
   palabras: Espanol[] = [];
   filtrovalor=''
 
-  constructor(private espanolService: EspanolService, private router: Router) { }
+  palabra: Espanol = inicializar()
+
+  constructor(private espanolService: EspanolService, private router: Router,     public dialog: MatDialog,  @Inject(MAT_DIALOG_DATA) public data: Espanol) { }
 
   ngOnInit(): void {
     this.espanolService.getPalabras().subscribe(p => {
@@ -32,6 +36,20 @@ export class ListaEspanolComponent implements OnInit {
 
   goBack() {
     this.router.navigate(['/espanol']);
+    }
+
+    openDialog(): void {
+      const dialogRef = this.dialog.open(NuevaEspanolComponent, {
+        height: '300px',
+        width: '500px',
+        data: {}
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          //this.palabras.push(result)
+        }
+      });
     }
 
 }

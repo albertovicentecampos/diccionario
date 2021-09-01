@@ -19,6 +19,7 @@ export class PalabraEspanolComponent implements OnInit {
 
   @Input() palabra: Espanol = inicializar();
   @Output() borrar: EventEmitter<number> = new EventEmitter();
+  
 
   p: string;
   palabrasIng: Ing[] = []

@@ -1,14 +1,16 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, RouterLink } from '@angular/router';
+import { Observable } from 'rxjs';
 import { EspanolService } from '../../application/services/espanol.service';
 
 import { Espanol, inicializar } from '../../model/espanol';
 import { BusquedaEspanolComponent } from '../busqueda-espanol/busqueda-espanol.component';
 import { NuevaEspanolComponent } from '../nueva-espanol/nueva-espanol.component';
-
+import { startWith, map} from 'rxjs/operators';
 
 
 @Component({
@@ -22,6 +24,12 @@ export class InicioEspanolComponent implements OnInit {
   registerForm = this.formBuilder.group({
     buscar: ['']
   })
+
+  filteredOptions: Observable<string[]>;
+  myControl = new FormControl();
+  palabras: Espanol[] = [] 
+  options: string[] = [];
+  
   constructor(
     public dialog: MatDialog,
     private route: Router,
@@ -33,6 +41,28 @@ export class InicioEspanolComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.espanolService.getPalabras().subscribe(p=>{
+      this.palabras = []
+      this.palabras = p; 
+      for(let i = 0 ; i < this.palabras.length; i++){
+        this.options.push(this.palabras[i].palabra)
+      }
+      this.buscar()
+    })
+  }
+
+  buscar(): void{
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value))
+    );
+  }
+
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    console.log(this.options)
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   openDialog(): void {
@@ -66,12 +96,12 @@ export class InicioEspanolComponent implements OnInit {
   busqueda() {
     let valor = false;
     console.log(this.registerForm.value.buscar)
-
-    if (this.registerForm.value.buscar == '') {
+    console.log()
+    if (this.myControl.value == '') {
       valor=true;
       this.mensaje("Escriba una palabra a buscar")
     } else {
-      this.espanolService.buscar(this.registerForm.value.buscar).subscribe(p => {
+      this.espanolService.buscar(this.myControl.value).subscribe(p => {
         this.pal = p;
         valor = true; 
         this.mensaje("Palabra encontrada")

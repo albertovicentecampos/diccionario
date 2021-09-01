@@ -5,13 +5,20 @@
   <input matInput (keyup)="filtrar($event)" placeholder="buscar">
 </mat-form-field>
 
+<div>
+  <button mat-raised-button (click)="openDialog()">NUEVA PALABRA</button>
+</div> 
 
-<div>PALABRAS</div>
-<div *ngIf="palabras.length > 0 else nowords">
-  <div *ngFor="let p of palabras | search:filtrovalor">
-    <app-palabra-espanol (borrar)="recibirEliminar($event)" [palabra]="p"></app-palabra-espanol>
+  <div>
+      <div class="tarjetas" *ngIf="palabras.length > 0 else nowords">
+        <div  style="margin-left: 20px;" *ngFor="let p of palabras | search:filtrovalor">
+          <app-palabra-espanol  (borrar)="recibirEliminar($event)" [palabra]="p"></app-palabra-espanol>
+        </div>
+      </div>
   </div>
-</div>
+     
+
+
 
 
 <ng-template #nowords>
