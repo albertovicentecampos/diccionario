@@ -1,15 +1,14 @@
-<button class="cerrar" (click)="cancelar()" mat-icon-button>
+<!-- <button class="cerrar" (click)="cancelar()" mat-icon-button>
     <mat-icon aria-label="Side nav toggle icon">close</mat-icon>
-  </button>
+</button> -->
+<a id="share" class="share-toggle share-icon-delete" style="display: flex; position: absolute;"
+    (click)="cancelar()"></a>
 
-<h1>{{title}}</h1>
-
+<h1 style="text-align: center;">{{title}}</h1>
+<div style="text-align: center;">(*) Campos obligatorios</div>
 <div class="edicion">
     <form [formGroup]="registerForm">
-        <div class="obligatorio">
-            (*) Campos obligatorios
-        </div>
-        <div class="formulario">
+        <div class="edicion">
             <mat-form-field class="example-form-field" appearance="fill">
                 <mat-label>Palabra * </mat-label>
                 <input matInput type="text" formControlName="palabra" placeholder="Introduzca una palabra">
@@ -19,21 +18,18 @@
                     </mat-error>
                 </div>
             </mat-form-field>
+        </div>
+        <div class="edicion">
+           
             <mat-form-field class="example-form-field" appearance="fill">
                 <mat-label>Descripcion </mat-label>
                 <input matInput type="text" formControlName="descripcion" placeholder="Introduzca una descripcion">
-                <div class="obligatorio">
-                    <!-- <mat-error>
-                        <span class="form-text text-danger" *ngIf="campoValido('user')"> El nombre de usuario debe de
-                            tener
-                            como mínimo 5 caracteres y como máximo 10</span>
-                    </mat-error> -->
-                </div>
             </mat-form-field>
         </div>
-        <div class="boton">
-            <button mat-raised-button color="#264D73" (click)="insertar()">Guardar</button>
-        </div>
-
     </form>
+
+</div>
+
+<div class="boton">
+    <button mat-raised-button color="#264D73" (click)="insertar()">Guardar</button>
 </div>

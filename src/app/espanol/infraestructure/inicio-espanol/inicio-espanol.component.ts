@@ -67,7 +67,7 @@ export class InicioEspanolComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(NuevaEspanolComponent, {
-      height: '300px',
+      height: '350px',
       width: '500px',
       data: {}
     });

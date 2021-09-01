@@ -1,3 +1,4 @@
+import { error } from '@angular/compiler/src/util';
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
@@ -17,6 +18,7 @@ export class NuevaEspanolComponent implements OnInit {
 
   title: string = "NUEVA PALABRA"
   palabra: Espanol = inicializar();
+  palabras: string[] = []
   //@Output() palabraInsertada: EventEmitter<Espanol> = new EventEmitter();
 
   registerForm = this.formBuilder.group({
@@ -47,12 +49,22 @@ export class NuevaEspanolComponent implements OnInit {
       return;
     } else {
       this.palabra = this.registerForm.value;
+
+      this.espanolService.getPalabras().subscribe(p=>{
+        for(let i in p){
+          this.palabras.push(p[i].palabra)
+        }
+        if(this.palabras.includes(this.palabra.palabra)){
+          alert("La palabra ya existe en el diccionario")
+        }
+      })
+
       this.espanolService.insertar(this.palabra).subscribe(c => {
         this.palabra = c;
         //this.palabraInsertada.emit(this.palabra)
         console.log("insertada")
         this.route.navigate(["espanol/palabraslista"])
-        window.location.reload();
+        //window.location.reload();
         this.dialogRef.close();
       })
     }

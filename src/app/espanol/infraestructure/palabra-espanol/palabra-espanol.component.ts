@@ -7,6 +7,7 @@ import { ActivatedRoute, Params, Router } from "@angular/router"
 import { NuevaEspanolComponent } from '../nueva-espanol/nueva-espanol.component';
 import { MatDialog } from '@angular/material/dialog';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { VentanaBorrarComponent } from 'src/app/shared/ventana-borrar/ventana-borrar.component';
 
 @Component({
   selector: 'app-palabra-espanol',
@@ -41,11 +42,35 @@ export class PalabraEspanolComponent implements OnInit {
   }
 
   eliminar(): void {
-    this.espanolService.delete(this.palabra.palabra).subscribe()
-    this.borrar.emit(this.palabra.id)
+
+    //nuevo
+    const dialogRef = this.dialog.open(VentanaBorrarComponent, {
+      height: '150px',
+      width: '250px',
+      data: ""
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.espanolService.delete(this.palabra.palabra).subscribe()
+        this.borrar.emit(this.palabra.id)
+      }
+    });
+
+
+    
 
     //this.route.navigate(['/palabraslista'])
 
   }
+
+  palabraUrl(palabra: string): void {
+    this.route.navigate(['espanol/palabra/'+palabra])
+  }
+
+  palabraIngles(palabra: string): void {
+    this.route.navigate(['ingles/palabra/'+palabra])
+  }
+
 
 }

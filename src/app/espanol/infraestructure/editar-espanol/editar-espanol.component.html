@@ -1,29 +1,24 @@
-<button mat-raised-button (click)="goBack()">Volver</button>
+<div style="margin-top: 20px; display: flex; justify-content: center;">
+    <button style="margin-right: 20px;" class="example-app-name" mat-icon-button (click)="goBack()">
+        <mat-icon aria-label="Side nav toggle icon">keyboard_backspace</mat-icon>
+    </button>
+    <h1 style="text-align: center;">{{title}}</h1>
+</div>
 
-<h1>{{title}}</h1>
 
+<div style="text-align: center;" class="obligatorio">
+    (*) Campos obligatorios
+</div>
 <div class="edicion">
     <form [formGroup]="registerForm">
-        <div class="obligatorio">
-            (*) Campos obligatorios
-        </div>
         <div class="formulario">
-
             <mat-form-field class="example-form-field" appearance="fill">
                 <mat-label>Descripcion </mat-label>
                 <input matInput type="text" formControlName="descripcion" placeholder="Introduzca una descripcion">
-                <div class="obligatorio">
-                    <!-- <mat-error>
-                        <span class="form-text text-danger" *ngIf="campoValido('user')"> El nombre de usuario debe de
-                            tener
-                            como mínimo 5 caracteres y como máximo 10</span>
-                    </mat-error> -->
-                </div>
             </mat-form-field>
         </div>
         <div class="boton">
             <button mat-raised-button color="#264D73" (click)="guardar()">Guardar</button>
         </div>
-
     </form>
 </div>
