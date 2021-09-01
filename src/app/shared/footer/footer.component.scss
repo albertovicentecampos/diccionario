@@ -1,0 +1,44 @@
+/*FOOTER*/
+
+.footer {
+    width: 100%;
+    height: auto;
+    background-color: #264D73;
+    justify-content: center;
+    color: white;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.footer-info{
+    padding: 10px;
+    margin-left: 80px;
+    width: 40%;
+}
+
+.footer-links {
+    padding: 50px;
+    width: 10%;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+    font-size: medium;
+    font-weight: 600;
+    margin-left: -40px;
+}
+
+.footer a:hover{
+    text-shadow: 
+	  		0 4px 6px rgba(0,0,0, 0.12),
+	    	0 4px 6px rgba(0,0,0, 0.24);
+
+	    -webkit-transform: scale(1.2);
+	    -moz-transform: scale(1.2);
+	    -ms-transform: scale(1.2);
+	    -o-transform: scale(1.2);
+	    transform: scale(1.2);
+}

@@ -72,6 +72,8 @@ import { EditarInglesComponent } from './ingles/infraestructure/editar-ingles/ed
 import { ListaInglesComponent } from './ingles/infraestructure/lista-ingles/lista-ingles.component';
 import { PalabraInglesComponent } from './ingles/infraestructure/palabra-ingles/palabra-ingles.component';
 import { InicioInglesComponent } from './ingles/infraestructure/inicio-ingles/inicio-ingles.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { InicioComponent } from './shared/inicio/inicio.component';
 
 //import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 //import {MatDialogRef} from '@angular/material/dialog';
@@ -98,7 +100,9 @@ import { InicioInglesComponent } from './ingles/infraestructure/inicio-ingles/in
     BusquedaInglesComponent,
     EditarInglesComponent,
     ListaInglesComponent,
-    PalabraInglesComponent
+    PalabraInglesComponent,
+    FooterComponent,
+    InicioComponent
   ],
   imports: [
     FormsModule,
