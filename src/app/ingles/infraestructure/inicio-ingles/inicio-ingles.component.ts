@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 import { InglesService } from '../../application/services/ingles.service';
 import { Ingles, inicializar } from '../../model/ingles';
 import { NuevaInglesComponent } from '../nueva-ingles/nueva-ingles.component';
@@ -19,6 +21,12 @@ export class InicioInglesComponent implements OnInit {
   registerForm = this.formBuilder.group({
     buscar: ['']
   })
+
+  filteredOptions: Observable<string[]>;
+  myControl = new FormControl();
+  palabras: Ingles[] = [] 
+  options: string[] = [];
+
   constructor(
     public dialog: MatDialog,
     private route: Router,
@@ -30,11 +38,33 @@ export class InicioInglesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.inglesService.getPalabras().subscribe(p=>{
+      this.palabras = []
+      this.palabras = p; 
+      for(let i = 0 ; i < this.palabras.length; i++){
+        this.options.push(this.palabras[i].palabra)
+      }
+      this.buscar()
+    })
+  }
+
+  buscar(): void{
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value))
+    );
+  }
+
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    console.log(this.options)
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(NuevaInglesComponent, {
-      height: '300px',
+      height: '350px',
       width: '500px',
       data: {}
     });
@@ -64,11 +94,11 @@ export class InicioInglesComponent implements OnInit {
     let valor = false;
     console.log(this.registerForm.value.buscar)
 
-    if (this.registerForm.value.buscar == '') {
-      valor=true;
+    if (this.myControl.value == '') {
+      //valor=true;
       this.mensaje("Escriba una palabra a buscar")
     } else {
-      this.inglesService.buscar(this.registerForm.value.buscar).subscribe(p => {
+      this.inglesService.buscar(this.myControl.value).subscribe(p => {
         this.pal = p;
         valor = true; 
         this.mensaje("Palabra encontrada")
@@ -76,6 +106,7 @@ export class InicioInglesComponent implements OnInit {
         this.route.navigate(['ingles/palabra', this.pal.palabra])
       })
       console.log(this.pal)
+      
       if (!valor) {
           this.mensaje("Palabra no encontrada")
         }

@@ -3,6 +3,7 @@ import { Component, OnInit, Input, Output,EventEmitter  } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Ing } from 'src/app/espanol/model/espanol';
+import { VentanaBorrarComponent } from 'src/app/shared/ventana-borrar/ventana-borrar.component';
 import { InglesService } from '../../application/services/ingles.service';
 
 
@@ -45,8 +46,19 @@ export class PalabraInglesComponent implements OnInit {
   }
 
   eliminar(): void {
-    this.inglesService.delete(this.palabra.palabra).subscribe()
-    this.borrar.emit(this.palabra.id)
+   //nuevo
+   const dialogRef = this.dialog.open(VentanaBorrarComponent, {
+    height: '150px',
+    width: '250px',
+    data: ""
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      this.inglesService.delete(this.palabra.palabra).subscribe()
+      this.borrar.emit(this.palabra.id)
+    }
+  });
 
     //this.route.navigate(['/palabraslista'])
 

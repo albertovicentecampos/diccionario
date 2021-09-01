@@ -98,7 +98,7 @@ export class InicioEspanolComponent implements OnInit {
     console.log(this.registerForm.value.buscar)
     console.log()
     if (this.myControl.value == '') {
-      valor=true;
+      //valor=true;
       this.mensaje("Escriba una palabra a buscar")
     } else {
       this.espanolService.buscar(this.myControl.value).subscribe(p => {

@@ -1,24 +1,42 @@
-<mat-card>
-    <mat-card-title>
-        {{palabra.palabra}}
-    </mat-card-title>
-    <mat-card-subtitle>
-        {{palabra.palabraEspanol}}
-    </mat-card-subtitle>
-    <!-- <mat-card-subtitle>
-        FECHA DE CREACIÓN: {{palabra.fechaAlta}}
-    </mat-card-subtitle>
-    <mat-card-subtitle>
-        ÚLTIMA MODIFICACION: {{palabra.fechaModificacion}}
-    </mat-card-subtitle> -->
-    <!-- <div>
-        PALABRAS INGLÉS
-        <mat-card-subtitle>
-            <div class="example-element-description" *ngFor="let p of palabrasIng">- {{p.palabra}}</div>
-        </mat-card-subtitle>
-    </div> -->
-    <mat-card-actions>
-        <button mat-raised-button color="#264D73" (click)="editar()">EDITAR</button>
-        <button mat-raised-button color="warn" class="eliminar" (click)="eliminar()">ELIMINAR</button>
-    </mat-card-actions>
+<mat-card class="contenido descripcion">
+    <div class="card radius shadowDepth1">
+        <div class="card__share">
+            <a id="share" class="share-toggle share-icon-delete" (click)="eliminar()"></a>
+            <a id="share" class="share-toggle share-icon-modify" (click)="editar()"></a>
+        </div>
+        <div class="descripcion">
+
+            <mat-card-title>
+                <a style="list-style-type: none;" >
+                    <h1> <a [routerLink]="['../palabra/'+palabra.palabra]">{{palabra.palabra}}</a></h1>
+                </a>
+            </mat-card-title>
+
+            <mat-card-subtitle>
+
+                <strong>CREACIÓN </strong>{{palabra.fechaAlta | date:'dd-MM-yyyy HH:mm'}}
+            </mat-card-subtitle>
+            <mat-card-subtitle>
+                <strong>ÚLT. MOD.</strong> {{palabra.fechaModificacion | date:'dd-MM-yyyy HH:mm' }}
+            </mat-card-subtitle>
+            <div class="borde" style="margin: 10px;" *ngIf="palabraEsp!=''">
+                <strong>PALABRA ESPAÑOL </strong>
+                <mat-card-subtitle>
+                    <div class="example-element-description">
+                        <p style="margin: 10px;">
+                            <a style="list-style-type: none;">
+                               <h1> <a [routerLink]="['/espanol/palabra/'+palabraEsp]">{{palabraEsp}}</a></h1>
+                            </a>
+                        </p>
+                    </div>
+                </mat-card-subtitle>
+            </div>
+        </div>
+
+        <!-- <mat-card-actions>
+            <button mat-raised-button color="#264D73" (click)="editar()">EDITAR</button>
+            <button mat-raised-button color="warn" class="eliminar" (click)="eliminar()">ELIMINAR</button>
+        </mat-card-actions> -->
+    </div>
+
 </mat-card>

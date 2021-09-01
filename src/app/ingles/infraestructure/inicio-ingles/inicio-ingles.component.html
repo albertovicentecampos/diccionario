@@ -3,12 +3,19 @@
     <div>
         <img mat-card-image src="assets/img/ingles.png">
     </div>
-    <div>
+
+    <div>        
         <mat-form-field>
             <mat-label>Buscar</mat-label>
             <form [formGroup]="registerForm">
-                <input matInput type="text" formControlName="buscar" placeholder="buscar">
+                <input matInput type="text" placeholder="buscar" [matAutocomplete]="auto"  [formControl]="myControl">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                      {{option}}
+                    </mat-option>
+                  </mat-autocomplete>
             </form>
+
         </mat-form-field>
         <button mat-raised-button color="#264D73" (click)="busqueda()">BUSCAR</button>
     </div>

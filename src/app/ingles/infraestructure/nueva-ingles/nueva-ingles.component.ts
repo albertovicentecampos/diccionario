@@ -17,6 +17,7 @@ export class NuevaInglesComponent implements OnInit {
 
   title: string = "NUEVA PALABRA"
   palabra: Ingles = inicializar();
+  palabras: string[] = []
 
   registerForm = this.formBuilder.group({
     palabra: ['', [Validators.required]],
@@ -46,6 +47,17 @@ export class NuevaInglesComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     } else {
+        this.palabra = this.registerForm.value;
+  
+        this.inglesService.getPalabras().subscribe(p=>{
+          for(let i in p){
+            this.palabras.push(p[i].palabra)
+          }
+          if(this.palabras.includes(this.palabra.palabra)){
+            alert("La palabra ya existe en el diccionario")
+          }
+        })
+  
       this.palabra = this.registerForm.value;
       this.inglesService.insertar(this.palabra).subscribe(c => {
         this.palabra = c;
@@ -56,6 +68,7 @@ export class NuevaInglesComponent implements OnInit {
       })
     }
   }
+  
 
   cancelar(): void {
     this.dialogRef.close();
