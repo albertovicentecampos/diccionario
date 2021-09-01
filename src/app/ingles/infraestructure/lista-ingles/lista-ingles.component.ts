@@ -34,7 +34,7 @@ export class ListaInglesComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/espanol']);
+    this.router.navigate(['/ingles']);
     }
 
 }

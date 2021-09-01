@@ -16,7 +16,7 @@ export class BusquedaInglesComponent implements OnInit {
   }
 
   goBack() {
-    this.route.navigate(['/espanol']);
+    this.route.navigate(['/ingles']);
   }
 
 }

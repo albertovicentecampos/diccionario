@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { EspanolService } from 'src/app/espanol/application/services/espanol.service';
 import { InglesService } from '../../application/services/ingles.service';
@@ -29,7 +30,8 @@ export class NuevaInglesComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<NuevaInglesComponent>,
     public inglesService: InglesService,
-    public route: Router) { }
+    public route: Router,
+    private matSnackBar: MatSnackBar) { }
 
 
   ngOnInit(): void {
@@ -61,6 +63,12 @@ export class NuevaInglesComponent implements OnInit {
 
   campoValido(campo: string ){
       return this.registerForm.controls[campo].errors && this.registerForm.controls[campo].touched;
+  }
+
+  mensaje(mensaje: string) {
+    this.matSnackBar.open(mensaje, " ", {
+      duration: 3000
+    })
   }
 
 }
