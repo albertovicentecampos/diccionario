@@ -10,7 +10,10 @@ import { NuevaEspanolComponent } from './espanol/infraestructure/nueva-espanol/n
 import { InicioInglesComponent } from './ingles/infraestructure/inicio-ingles/inicio-ingles.component';
 import { ListadoInglesComponent } from './ingles/infraestructure/listado-ingles/listado-ingles.component';
 import { InglesModule } from './ingles/ingles.module';
+import { AuthGuard } from './shared/auth.guard';
 import { InicioComponent } from './shared/inicio/inicio.component';
+import { LoginComponent } from './shared/login/login.component';
+import { RegisterComponent } from './shared/register/register.component';
 
 //import { NuevaInglesComponent } from './ingles/infraestructure/nueva-ingles/nueva-ingles.component';
 
@@ -25,14 +28,32 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => EspanolModule
+        loadChildren: () => EspanolModule,
+        canActivate:[AuthGuard]
+      }
+    ]
+  },
+  {
+    path: '',
+    children: [
+      {
+        path: '',
+        loadChildren: () => InglesModule,
+        canActivate:[AuthGuard]
       }
     ]
   },
   {
     path:'inicio',
-    component: InicioComponent,
+    component: InicioComponent
 
+  }, {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'registro',
+    component: RegisterComponent
   }
 ];
 

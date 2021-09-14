@@ -1,0 +1,29 @@
+<div class="cuadro">
+    <form id="formulario" [formGroup]="miFormulario">
+
+        <h3 class="Titulo">REGISTRO</h3>
+        <h4>Introduzca sus datos personales</h4>
+        <hr>
+
+        <div>
+            <p>Email</p>
+            <input type="email" name="email" id="email" formControlName="email">
+            <br>
+
+            <p>Contraseña</p>
+            <input type="password" id="pass" name="pass"
+                formControlName="pass"/>
+            <br>
+            <p>Repetir Contraseña</p>
+            <input type="password" id="passrepetida" name="passrepetida"
+                formControlName="passrepetida"/>
+        </div>
+
+        <div class="Botones">
+            <button  mat-raised-button id="boton-enviar" style="margin-top: 10px;" (click)="nuevoUsuario()"
+                [disabled]="miFormulario.invalid">Resgitrarse</button>
+                <a style="margin-top: 20px;" class="registro" [routerLink]="['../login']">Volver</a>
+        </div>
+
+    </form>
+</div>

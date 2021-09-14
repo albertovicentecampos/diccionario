@@ -1,0 +1,23 @@
+<div class="cuadro">
+    <form id="formulario" [formGroup]="miFormulario">
+
+      <h3 class="Titulo">INICIAR SESIÓN</h3>
+      <h4>Inicie sesión para acceder a la aplicación</h4>
+      <hr>
+
+      <div>
+        <p>Email</p>
+        <input type="email" name="email" id="email" formControlName="email">
+        <br>
+        <p>Contraseña</p>
+        <input type="password" id="pass" name="pass" formControlName="pass"/>
+      </div>
+
+      <div class="Botones">
+        <button mat-raised-button style="margin-top: 10px;"  id="boton-enviar" (click)="Login()">Entrar</button>
+        <a style="margin-top: 20px;" class="registro" [routerLink]="['../registro']">Regístrate</a>
+      </div>
+
+     
+    </form>
+  </div>

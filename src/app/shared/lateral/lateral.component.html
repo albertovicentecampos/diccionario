@@ -1,17 +1,36 @@
-<div class="example-container">
-    <mat-toolbar class="example-toolbar" style="background-color: rgb(116, 178, 240);">
-        <a class="example-app-name ">DICCIONARIO</a>
+<ng-container *ngIf="entra == false; else login">
+    <div class="example-container">
+        <mat-toolbar class="example-toolbar" style="background-color: rgb(116, 178, 240);">
+            <a class="example-app-name ">DICCIONARIO</a>
+    
+            <nav role="navigation" style="right: 0; margin-right: 50px; display: flex; position: absolute;">
+                <ul style="list-style: none; display: inline-flex;">
+                    <a mat-raised-button color="#264D73" [routerLink]="['inicio']" [routerLinkActive]="['active']"> INICIO </a>
+                    <a mat-raised-button color="#264D73" [routerLink]="['login']" [routerLinkActive]="['active']"> INICIAR SESIÓN </a>
+                    <a mat-raised-button color="#264D73" [routerLink]="['registro']" [routerLinkActive]="['active']"> REGISTRATE </a>
+                </ul>
+              </nav> 
+        </mat-toolbar>
+    </div>
+</ng-container>
 
-        <nav role="navigation" style="right: 0; margin-right: 50px; display: flex; position: absolute;">
-            <ul style="list-style: none; display: inline-flex;">
-                <a mat-raised-button color="#264D73" [routerLink]="['inicio']" [routerLinkActive]="['active']"> INICIO </a>
-                <a mat-raised-button color="#264D73" [routerLink]="['espanol']" [routerLinkActive]="['active']"> ESPAÑOL </a>
-                <a mat-raised-button color="#264D73" [routerLink]="['ingles']" [routerLinkActive]="['active']"> INGLÉS </a>
-            </ul>
-          </nav> 
-    </mat-toolbar>
 
+<ng-template #login>
+    <div class="example-container">
+        <mat-toolbar class="example-toolbar" style="background-color: rgb(116, 178, 240);">
+            <a class="example-app-name ">DICCIONARIO</a>
+    
+            <nav role="navigation" style="right: 0; margin-right: 50px; display: flex; position: absolute;">
+                <ul style="list-style: none; display: inline-flex;">
+                    <a mat-raised-button color="#264D73" [routerLink]="['inicio']" [routerLinkActive]="['active']"> INICIO </a>
+                    <a mat-raised-button color="#264D73" [routerLink]="['espanol']" [routerLinkActive]="['active']"> ESPAÑOL </a>
+                    <a mat-raised-button color="#264D73" [routerLink]="['ingles']" [routerLinkActive]="['active']"> INGLÉS </a>
+                    <a mat-raised-button color="#264D73" (click)="logout()"> CERRAR SESIÓN </a>
+                </ul>
+              </nav> 
+        </mat-toolbar>
+    </div>
+</ng-template>
 
-</div>
 
 

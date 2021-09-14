@@ -1,0 +1,54 @@
+:host {
+  //font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.registro {
+  cursor: pointer;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.cuadro {
+  margin: 0 auto;
+  margin-bottom: -100px;
+  margin-top: -100px;
+  position: relative;
+  width: 450px;
+}
+
+label {
+  color: white;
+}
+
+#formulario {
+  background: #5493d1;
+  padding: 25px;
+  border-radius: 3px;
+  margin: 150px 0;
+}
+
+input {
+  width: 90%;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0 0 10px;
+  padding: 10px;
+  border-radius: 3px;
+  resize: none;
+}
+
+.Titulo {
+  display: block;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 100;
+  margin-bottom: 20px;
+}
+
+.Botones {
+  text-align: center;
+}

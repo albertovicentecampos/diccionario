@@ -75,6 +75,8 @@ import { InicioInglesComponent } from './ingles/infraestructure/inicio-ingles/in
 import { FooterComponent } from './shared/footer/footer.component';
 import { InicioComponent } from './shared/inicio/inicio.component';
 import { VentanaBorrarComponent } from './shared/ventana-borrar/ventana-borrar.component';
+import { LoginComponent } from './shared/login/login.component';
+import { RegisterComponent } from './shared/register/register.component';
 
 //import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 //import {MatDialogRef} from '@angular/material/dialog';
@@ -104,7 +106,9 @@ import { VentanaBorrarComponent } from './shared/ventana-borrar/ventana-borrar.c
     PalabraInglesComponent,
     FooterComponent,
     InicioComponent,
-    VentanaBorrarComponent
+    VentanaBorrarComponent,
+    LoginComponent,
+     RegisterComponent
   ],
   imports: [
     FormsModule,
