@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
 
   miFormulario = this.formBuilder.group({
-    email: ["", [Validators.required]],
+    usuario: ["", [Validators.required]],
     pass: ["", [Validators.required]]
   });
 
@@ -38,11 +38,11 @@ export class LoginComponent implements OnInit {
     var usuarios = RegisterComponent.usuarios
     var hay = false;
 
-    var email = this.miFormulario.get("email")?.value;
+    var usuario = this.miFormulario.get("usuario")?.value;
     var pass = this.miFormulario.get("pass")?.value;
 
     for(let i in usuarios ) {
-      if(usuarios[i].email.includes(email) && usuarios[i].password.includes(pass)){
+      if(usuarios[i].nombreUsuario.includes(usuario) && usuarios[i].password.includes(pass)){
         this.loginService.iniciar();
         hay = true; 
         this.logService.inicia();
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
 
     if(!hay){
       let mensaje = "Usuario o contraseña incorrecto"
-      if(email=="" && pass==""){
+      if(usuario=="" && pass==""){
         mensaje = "Introduzca usuario y contraseña"
       }
       alert(mensaje);
