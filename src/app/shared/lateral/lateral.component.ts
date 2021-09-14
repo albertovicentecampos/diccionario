@@ -11,6 +11,7 @@ import { LogService } from '../login/login.component';
 export class LateralComponent implements OnInit {
 
   entra: boolean = false; 
+  nombreUs: string = ""
   constructor(private loginService: LoginService, 
     private route: Router,
     private logService: LogService) { }
@@ -18,6 +19,10 @@ export class LateralComponent implements OnInit {
   ngOnInit(): void {
     this.logService.change.subscribe(valor => {
       this.entra = valor; 
+    })
+
+    this.logService.nomnbre.subscribe(v=>{
+      this.nombreUs = v
     })
 
   }

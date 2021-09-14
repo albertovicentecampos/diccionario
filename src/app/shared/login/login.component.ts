@@ -23,9 +23,9 @@ export class LoginComponent implements OnInit {
   });
 
 
-  constructor(private loginService: LoginService, 
-    private auth: AuthGuard, 
-    private dialog: MatDialog, 
+  constructor(private loginService: LoginService,
+    private auth: AuthGuard,
+    private dialog: MatDialog,
     private route: Router,
     private formBuilder: FormBuilder,
     private logService: LogService) { }
@@ -35,29 +35,33 @@ export class LoginComponent implements OnInit {
 
   Login() {
 
-    var usuarios = RegisterComponent.usuarios
     var hay = false;
 
     var usuario = this.miFormulario.get("usuario")?.value;
     var pass = this.miFormulario.get("pass")?.value;
 
-    for(let i in usuarios ) {
-      if(usuarios[i].nombreUsuario.includes(usuario) && usuarios[i].password.includes(pass)){
-        this.loginService.iniciar();
-        hay = true; 
-        this.logService.inicia();
-        this.route.navigate(['/inicio']);
+    this.loginService.getNombre(usuario).subscribe(p => {
+      if (p.length == 0) {
+        hay = false;
+      } else {
+        if (p[0].password == pass) {
+          this.loginService.iniciar();
+          hay = true;
+          this.logService.enviarNombre(usuario)
+          this.logService.inicia();
+          this.route.navigate(['/inicio']);
+        }
       }
-    }
 
-
-    if(!hay){
-      let mensaje = "Usuario o contraseña incorrecto"
-      if(usuario=="" && pass==""){
-        mensaje = "Introduzca usuario y contraseña"
+      if (!hay) {
+        let mensaje = "Usuario o contraseña incorrecto"
+        if (usuario == "" && pass == "") {
+          mensaje = "Introduzca usuario y contraseña"
+        }
+        alert(mensaje);
       }
-      alert(mensaje);
-    }
+
+    })
 
   }
 
@@ -70,12 +74,17 @@ export class LoginComponent implements OnInit {
 export class LogService {
   isLog = false;
   @Output() change: EventEmitter<boolean> = new EventEmitter();
+  @Output() nomnbre: EventEmitter<string> = new EventEmitter();
 
-  constructor(){}
+  constructor() { }
 
-  inicia(){
+  inicia() {
     this.isLog = true;
     this.change.emit(this.isLog);
+  }
+
+  enviarNombre(n: string) {
+    this.nomnbre.emit(n);
   }
 
 }

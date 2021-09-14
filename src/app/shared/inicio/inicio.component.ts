@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginService } from '../login.service';
+import { LogService } from '../login/login.component';
 
 @Component({
   selector: 'app-inicio',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
 
-  constructor() { }
+  entrar: boolean = false;
+  nombreU: string = ""
+  constructor(private loginService: LoginService, 
+    private route: Router,
+    private logService: LogService) { }
 
   ngOnInit(): void {
+    this.logService.change.subscribe(valor => {
+      console.log("VALOOOOOOR "+ valor)
+      this.entrar = valor; 
+    })
+
+    this.logService.nomnbre.subscribe(v=>{
+      console.log("Nombre: "+ v)
+      this.nombreU = v
+    })
+
   }
 
 }

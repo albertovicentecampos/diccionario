@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
           })
 
         }else{
-          alert("Ese nombre de usuario ya existe")
+          alert("Ese nombre de usuario ya existe. Elija otro")
         }
 
       })

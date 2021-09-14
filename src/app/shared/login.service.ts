@@ -30,10 +30,6 @@ export class LoginService {
     return this.http.get<Usuario[]>(this.urlUsuarios)
   }
 
-  getUsuario(id: number): Observable<Usuario>{
-    return this.http.get<Usuario>(this.urlUsuarios+'/'+id)
-  }
-
   add(usuario: Usuario): Observable<Usuario>{
     console.log(usuario)
     return this.http.post<Usuario>(this.urlUsuarios, usuario)

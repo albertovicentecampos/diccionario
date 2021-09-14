@@ -1,10 +1,11 @@
-<mat-drawer-container >
+<ng-container *ngIf="entrar == false; else login">
     <div class="count-wrp mt-100" style=" background-color: rgb(243, 243, 243); padding:50px;">
         <div class="count-wrp-inner">
             <div class="description" style="color: rgb(77, 77, 77); text-align: center;">
-                <h1>NUESTRA APLICACIÓN</h1>
+                <h1>NUESTRA APLICACIÓN {{nombreU}} </h1>
                 <h2>Líder en visitas</h2>
-                <p>Dirígete en la barra de navegación al idioma que quieras añadir, borrar, buscar o editar una palabra</p>
+                <p>Dirígete en la barra de navegación al idioma que quieras añadir, borrar, buscar o editar una
+                    palabra</p>
             </div>
         </div>
     </div>
@@ -17,4 +18,26 @@
             </div>
         </div>
     </div>
-</mat-drawer-container>
+</ng-container>
+
+<ng-template #login>
+    <div class="count-wrp mt-100" style=" background-color: rgb(243, 243, 243); padding:50px;">
+        <div class="count-wrp-inner">
+            <div class="description" style="color: rgb(77, 77, 77); text-align: center;">
+                <h1>BIENVENIDO {{nombreU}}</h1>
+                <h2>Líder en visitas</h2>
+                <p>Dirígete en la barra de navegación al idioma que quieras añadir, borrar, buscar o editar una
+                    palabra</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <div style="text-align: center;">
+                <h1> Añade y borra palabras </h1>
+                <h1>Añade sus traducciones</h1>
+                <h1>Actualiza las traducciones</h1>
+            </div>
+        </div>
+    </div>
+</ng-template>
