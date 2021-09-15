@@ -77,6 +77,7 @@ import { InicioComponent } from './shared/inicio/inicio.component';
 import { VentanaBorrarComponent } from './shared/ventana-borrar/ventana-borrar.component';
 import { LoginComponent } from './shared/login/login.component';
 import { RegisterComponent } from './shared/register/register.component';
+import { LoaderComponent } from './shared/loader/loader.component';
 
 //import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 //import {MatDialogRef} from '@angular/material/dialog';
@@ -108,7 +109,8 @@ import { RegisterComponent } from './shared/register/register.component';
     InicioComponent,
     VentanaBorrarComponent,
     LoginComponent,
-     RegisterComponent
+     RegisterComponent,
+     LoaderComponent
   ],
   imports: [
     FormsModule,

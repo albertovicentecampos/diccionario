@@ -9,6 +9,11 @@
       "nombreUsuario": "alber",
       "password": "1",
       "id": 2
+    },
+    {
+      "nombreUsuario": "qwe",
+      "password": "123",
+      "id": 3
     }
   ]
 }
