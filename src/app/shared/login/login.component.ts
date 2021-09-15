@@ -1,6 +1,8 @@
 import { Component, Injectable, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
 
 import { AuthGuard } from '../auth.guard';
@@ -28,7 +30,8 @@ export class LoginComponent implements OnInit {
     private dialog: MatDialog,
     private route: Router,
     private formBuilder: FormBuilder,
-    private logService: LogService) { }
+    private logService: LogService,
+    private matSnackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -50,6 +53,7 @@ export class LoginComponent implements OnInit {
           this.logService.enviarNombre(usuario)
           this.logService.inicia();
           this.route.navigate(['/inicio']);
+          this.mensaje("Inicio de sesión realizado satisfactoriamente")
         }
       }
 
@@ -63,6 +67,12 @@ export class LoginComponent implements OnInit {
 
     })
 
+  }
+
+  mensaje(mensaje: string){
+    this.matSnackBar.open(mensaje,"",{
+      duration:5000
+    })
   }
 
 

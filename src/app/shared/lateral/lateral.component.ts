@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { LogService } from '../login/login.component';
@@ -14,7 +15,8 @@ export class LateralComponent implements OnInit {
   nombreUs: string = ""
   constructor(private loginService: LoginService, 
     private route: Router,
-    private logService: LogService) { }
+    private logService: LogService, 
+    private matSnackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.logService.change.subscribe(valor => {
@@ -31,7 +33,15 @@ export class LateralComponent implements OnInit {
     if (LoginService.sesionIniciada == true) {
       this.entra = false;
       this.route.navigate(["/login"])
+      this.mensaje("Cierre de sesión realizado satisfactoriamente")
+
     }
+  }
+
+  mensaje(mensaje: string){
+    this.matSnackBar.open(mensaje,"",{
+      duration:5000
+    })
   }
 
 }

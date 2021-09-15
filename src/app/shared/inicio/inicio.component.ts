@@ -17,15 +17,19 @@ export class InicioComponent implements OnInit {
     private logService: LogService) { }
 
   ngOnInit(): void {
+
     this.logService.change.subscribe(valor => {
       console.log("VALOOOOOOR "+ valor)
       this.entrar = valor; 
-    })
 
-    this.logService.nomnbre.subscribe(v=>{
-      console.log("Nombre: "+ v)
-      this.nombreU = v
+      this.logService.nomnbre.subscribe(v=>{
+        console.log("Nombre: "+ v)
+        this.nombreU = v
+      })
     })
+    
+
+    
 
   }
 
