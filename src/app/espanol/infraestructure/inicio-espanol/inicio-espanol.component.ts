@@ -11,6 +11,7 @@ import { Espanol, inicializar } from '../../model/espanol';
 import { BusquedaEspanolComponent } from '../busqueda-espanol/busqueda-espanol.component';
 import { NuevaEspanolComponent } from '../nueva-espanol/nueva-espanol.component';
 import { startWith, map} from 'rxjs/operators';
+import { AnimationService } from 'src/app/shared/services/animation/animation.service';
 
 
 @Component({
@@ -35,7 +36,8 @@ export class InicioEspanolComponent implements OnInit {
     private route: Router,
     private formBuilder: FormBuilder,
     private espanolService: EspanolService,
-    private matSnackBar: MatSnackBar
+    private matSnackBar: MatSnackBar,
+    private animationService: AnimationService
 
     //public dialogRef: MatDialogRef<NuevaEspanolComponent>
   ) { }
@@ -90,6 +92,7 @@ export class InicioEspanolComponent implements OnInit {
   }
 
   listaa() {
+    this.animationService.realizarAnimacion()
     this.route.navigate(['espanol/palabraslista'])
   }
 

@@ -1,4 +1,6 @@
-<app-lateral></app-lateral>
-<app-loader></app-loader>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<div>
+    <app-lateral></app-lateral>
+    <app-loader *ngIf="animacion"></app-loader>
+    <router-outlet *ngIf="!animacion"></router-outlet>
+    <app-footer *ngIf="!animacion"></app-footer>
+</div>

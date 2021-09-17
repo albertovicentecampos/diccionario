@@ -10,6 +10,7 @@ import { AuthGuard } from '../auth.guard';
 
 import { LoginService } from '../login.service';
 import { RegisterComponent } from '../register/register.component';
+import { AnimationService } from '../services/animation/animation.service';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +32,8 @@ export class LoginComponent implements OnInit {
     private route: Router,
     private formBuilder: FormBuilder,
     private logService: LogService,
-    private matSnackBar: MatSnackBar) { }
+    private matSnackBar: MatSnackBar,
+    private animationService: AnimationService) { }
 
   ngOnInit(): void {
   }
@@ -52,6 +54,7 @@ export class LoginComponent implements OnInit {
           hay = true;
           this.logService.enviarNombre(usuario)
           this.logService.inicia();
+          this.animationService.realizarAnimacion();
           this.route.navigate(['/inicio']);
           this.mensaje("Inicio de sesión realizado satisfactoriamente")
         }

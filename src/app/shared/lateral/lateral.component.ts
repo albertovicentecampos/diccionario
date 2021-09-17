@@ -1,8 +1,10 @@
+import { ValueTransformer } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { LogService } from '../login/login.component';
+import { AnimationService } from '../services/animation/animation.service';
 
 @Component({
   selector: 'app-lateral',
@@ -16,11 +18,14 @@ export class LateralComponent implements OnInit {
   constructor(private loginService: LoginService, 
     private route: Router,
     private logService: LogService, 
-    private matSnackBar: MatSnackBar) { }
+    private matSnackBar: MatSnackBar,
+    private animationService: AnimationService) { }
 
   ngOnInit(): void {
     this.logService.change.subscribe(valor => {
+      
       this.entra = valor; 
+
     })
 
     this.logService.nomnbre.subscribe(v=>{
@@ -32,6 +37,7 @@ export class LateralComponent implements OnInit {
   logout(){
     if (LoginService.sesionIniciada == true) {
       this.entra = false;
+      this.animationService.realizarAnimacion();
       this.route.navigate(["/login"])
       this.mensaje("Cierre de sesión realizado satisfactoriamente")
 

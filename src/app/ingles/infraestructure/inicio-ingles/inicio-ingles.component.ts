@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { AnimationService } from 'src/app/shared/services/animation/animation.service';
 import { InglesService } from '../../application/services/ingles.service';
 import { Ingles, inicializar } from '../../model/ingles';
 import { NuevaInglesComponent } from '../nueva-ingles/nueva-ingles.component';
@@ -32,8 +33,8 @@ export class InicioInglesComponent implements OnInit {
     private route: Router,
     private formBuilder: FormBuilder,
     private inglesService: InglesService,
-    private matSnackBar: MatSnackBar
-
+    private matSnackBar: MatSnackBar,
+    private animationService: AnimationService
     //public dialogRef: MatDialogRef<NuevaEspanolComponent>
   ) { }
 
@@ -83,6 +84,7 @@ export class InicioInglesComponent implements OnInit {
   // }
 
   lista() {
+    this.animationService.realizarAnimacion()
     this.route.navigate(['/palabras'])
   }
 
