@@ -1,3 +1,4 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Component, Injectable, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -47,6 +48,7 @@ export class LoginComponent implements OnInit {
 
     this.loginService.getNombre(usuario).subscribe(p => {
       if (p.length == 0) {
+        localStorage.setItem('hay', 'false')
         hay = false;
       } else {
         if (p[0].password == pass) {
@@ -86,18 +88,22 @@ export class LoginComponent implements OnInit {
 })
 export class LogService {
   isLog = false;
-  @Output() change: EventEmitter<boolean> = new EventEmitter();
-  @Output() nomnbre: EventEmitter<string> = new EventEmitter();
+  @Output() change: EventEmitter<any> = new EventEmitter();
+  @Output() nomnbre: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   inicia() {
-    this.isLog = true;
-    this.change.emit(this.isLog);
+    localStorage.setItem('hay',"true")
+    var valor = localStorage.getItem('hay')
+    //this.isLog = true;
+    this.change.emit(valor);
   }
 
   enviarNombre(n: string) {
-    this.nomnbre.emit(n);
+    localStorage.setItem('nombre', n)
+    var nombre = localStorage.getItem('nombre')
+    this.nomnbre.emit(nombre);
   }
 
 }

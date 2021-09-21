@@ -19,6 +19,7 @@ export class LoginService {
 
 
   iniciar() {
+    localStorage.setItem('hay',"true")
     LoginService.sesionIniciada = true;
     this.router.navigate(["/"]);
   }
