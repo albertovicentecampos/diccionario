@@ -78,11 +78,13 @@ import { VentanaBorrarComponent } from './shared/ventana-borrar/ventana-borrar.c
 import { LoginComponent } from './shared/login/login.component';
 import { RegisterComponent } from './shared/register/register.component';
 import { LoaderComponent } from './shared/loader/loader.component';
+import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+import { environment } from 'src/environments/environment';
 
 //import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 //import {MatDialogRef} from '@angular/material/dialog';
 
-
+const CLIENT_ID = environment.client_Id;
 
 @NgModule({
   declarations: [
@@ -169,6 +171,7 @@ import { LoaderComponent } from './shared/loader/loader.component';
 
     EspanolModule,
     InglesModule,
+    SocialLoginModule
 
     //MatDialog,
     //MatDialogRef
@@ -177,6 +180,20 @@ import { LoaderComponent } from './shared/loader/loader.component';
     PalabraEspanolComponent
   ],
   providers: [
+    {
+      provide: "SocialAuthServiceConfig",
+      useValue: {
+        autoLogin: true,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              CLIENT_ID
+            )
+          }
+        ]
+      } as SocialAuthServiceConfig
+    }
   ],
   bootstrap: [AppComponent]
 })

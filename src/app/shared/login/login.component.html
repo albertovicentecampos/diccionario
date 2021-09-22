@@ -1,23 +1,25 @@
 <div class="cuadro">
-    <form id="formulario" [formGroup]="miFormulario">
+  <form id="formulario" [formGroup]="miFormulario">
 
-      <h3 class="Titulo">INICIAR SESIÓN</h3>
-      <h4>Inicie sesión para acceder a la aplicación</h4>
-      <hr>
+    <h3 class="Titulo">INICIAR SESIÓN</h3>
+    <h4>Inicie sesión para acceder a la aplicación</h4>
+    <hr>
 
-      <div>
-        <p>Nombre de usuario</p>
-        <input matInput type="text" name="usuario" id="usuario" formControlName="usuario">
-        <br>
-        <p>Contraseña</p>
-        <input type="password" id="pass" name="pass" formControlName="pass"/>
-      </div>
+    <div>
+      <p>Nombre de usuario</p>
+      <input matInput type="text" name="usuario" id="usuario" formControlName="usuario">
+      <br>
+      <p>Contraseña</p>
+      <input type="password" id="pass" name="pass" formControlName="pass" />
+    </div>
 
-      <div class="Botones">
-        <button mat-raised-button style="margin-top: 10px;"  id="boton-enviar" (click)="Login()">Entrar</button>
-        <a style="margin-top: 20px;" class="registro" [routerLink]="['../registro']">Regístrate</a>
-      </div>
+    <div class="Botones">
+      <button mat-raised-button style="margin-top: 10px;" id="boton-enviar" (click)="Login()">Entrar</button>
+      <a style="margin-top: 20px;" class="registro" [routerLink]="['../registro']">Regístrate</a>
+      <button class="btn btn-social-icon btn google" id="googleBtn" (click)="signInWithGoogle()"> Entrar con Google
+      </button>
+    </div>
 
-     
-    </form>
-  </div>
+
+  </form>
+</div>

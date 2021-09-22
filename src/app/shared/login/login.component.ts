@@ -5,6 +5,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
+import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 
 import { AuthGuard } from '../auth.guard';
 
@@ -34,7 +35,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private logService: LogService,
     private matSnackBar: MatSnackBar,
-    private animationService: AnimationService) { }
+    private animationService: AnimationService,
+    private authService: SocialAuthService) { }
 
   ngOnInit(): void {
   }
@@ -42,7 +44,6 @@ export class LoginComponent implements OnInit {
   Login() {
 
     var hay = false;
-
     var usuario = this.miFormulario.get("usuario")?.value;
     var pass = this.miFormulario.get("pass")?.value;
 
@@ -74,9 +75,23 @@ export class LoginComponent implements OnInit {
 
   }
 
-  mensaje(mensaje: string){
-    this.matSnackBar.open(mensaje,"",{
-      duration:5000
+  async signInWithGoogle() {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    await new Promise(f => setTimeout(f, 2000));
+
+    // this.logService.inicia();
+    this.loginService.iniciarGoogle();
+    this.animationService.realizarAnimacion();
+
+    // this.route.navigate(['/inicio']);
+    // this.mensaje("Inicio de sesión realizado satisfactoriamente")
+    //location.reload()
+
+  }
+
+  mensaje(mensaje: string) {
+    this.matSnackBar.open(mensaje, "", {
+      duration: 5000
     })
   }
 
@@ -89,12 +104,13 @@ export class LoginComponent implements OnInit {
 export class LogService {
   isLog = false;
   @Output() change: EventEmitter<any> = new EventEmitter();
-  @Output() nomnbre: EventEmitter<any> = new EventEmitter();
+
+  @Output() nombre: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   inicia() {
-    localStorage.setItem('hay',"true")
+    localStorage.setItem('hay', "true")
     var valor = localStorage.getItem('hay')
     //this.isLog = true;
     this.change.emit(valor);
@@ -103,7 +119,7 @@ export class LogService {
   enviarNombre(n: string) {
     localStorage.setItem('nombre', n)
     var nombre = localStorage.getItem('nombre')
-    this.nomnbre.emit(nombre);
+    this.nombre.emit(nombre);
   }
 
 }

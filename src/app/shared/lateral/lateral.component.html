@@ -1,4 +1,4 @@
-<ng-container *ngIf="hay == 'false'; else login">
+<ng-container *ngIf="hay == 'false' && token == ''; else login">
     <div class="example-container">
         <mat-toolbar class="example-toolbar" style="background-color: rgb(116, 178, 240);">
             <a class="example-app-name ">DICCIONARIO</a>
@@ -21,7 +21,7 @@
     <div class="example-container">
         <mat-toolbar class="example-toolbar" style="background-color: rgb(116, 178, 240);">
             <a class="example-app-name ">DICCIONARIO</a>
-            <a class="example-app-name ">| Bienvenido {{nombreUs}}</a>
+            <a class="example-app-name ">| Bienvenido</a>
             
             <nav role="navigation" style="right: 0; margin-right: 10px; margin-left: -20px; display: flex;">
                 <ul style="">

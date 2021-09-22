@@ -22,7 +22,7 @@ export class InicioComponent implements OnInit {
       console.log("VALOOOOOOR "+ valor)
       this.entrar = valor; 
 
-      this.logService.nomnbre.subscribe(v=>{
+      this.logService.nombre.subscribe(v=>{
         console.log("Nombre: "+ v)
         this.nombreU = v
       })

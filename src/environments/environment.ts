@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   url: 'http://localhost:8080',
-  urlUsuario: 'http://localhost:3000/usuarios'
+  urlUsuario: 'http://localhost:3000/usuarios',
+  client_Id: '623651115139-ponolkkh919edir5f4vlcjbm1626tou2.apps.googleusercontent.com'
 };
 
 /*
