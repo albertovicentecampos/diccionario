@@ -16,10 +16,21 @@
     <div class="Botones">
       <button mat-raised-button style="margin-top: 10px;" id="boton-enviar" (click)="Login()">Entrar</button>
       <a style="margin-top: 20px;" class="registro" [routerLink]="['../registro']">Regístrate</a>
-      <button class="btn btn-social-icon btn google" id="googleBtn" (click)="signInWithGoogle()"> Entrar con Google
-      </button>
+      <p style="margin-top: 10px">
+        O inicia sesión con
+      </p>
+      <div class="Botones">
+        <button mat-raised-button (click)="signInWithGoogle()">
+          <img width="20px" alt="Google sign-in"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
+          Google
+          </button>
+
+      </div>
     </div>
 
 
   </form>
+
+
 </div>

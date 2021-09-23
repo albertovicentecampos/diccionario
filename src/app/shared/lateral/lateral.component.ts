@@ -67,8 +67,6 @@ export class LateralComponent implements OnInit {
 
     this.token = localStorage.getItem('token')
 
-
-
   }
 
 
@@ -81,20 +79,26 @@ export class LateralComponent implements OnInit {
     var valor = localStorage.getItem('hay')
     if (this.hay == "true") {
       localStorage.setItem('hay', "false")
+      //localStorage.removeItem('hay');
       console.log("valor de salida: " + localStorage.getItem('hay'))
       //this.authService.signOut();
       localStorage.setItem('nom', "")
+      localStorage.removeItem('nom')
       this.hay = localStorage.getItem('hay')
       this.nombreUs = localStorage.getItem('nombre')
       this.entra = false;
       this.animationService.realizarAnimacion();
       this.route.navigate(["/login"])
       this.mensaje("Cierre de sesión realizado satisfactoriamente")
+
     } else if (localStorage.getItem('token') != "") {
+
+      console.log("Entraaadef")
       localStorage.setItem('nombre', "")
+      //localStorage.removeItem('nombre')
       this.authService.signOut();
       localStorage.setItem('token', "")
-
+      //localStorage.removeItem('token')
       this.token = localStorage.getItem('token')
       this.animationService.realizarAnimacion();
       this.route.navigate(["/login"])

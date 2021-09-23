@@ -52,3 +52,41 @@ input {
 .Botones {
   text-align: center;
 }
+
+// button {
+//   background-color: rgb(255, 255, 255);
+//   border: none;
+//   border-radius: 4px;
+//   cursor: pointer;
+//   color: black;
+//   font-size: 13px;
+//   display: flexbox;
+
+// }
+// button:hover {
+//   background-color: #7d838a;
+//   color: white;
+// }
+// button:disabled {
+//   background-color: #eee;
+//   color: #aaa;
+//   cursor: auto;
+// }
+
+
+.boton_personalizado{
+  width: 183px;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #282b2c;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.boton_personalizado:hover{
+  transition: all 0.3s ease;
+  color: #000000;
+  background-color: #ffffff;
+}

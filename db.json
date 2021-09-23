@@ -14,6 +14,11 @@
       "nombreUsuario": "qwe",
       "password": "123",
       "id": 3
+    },
+    {
+      "nombreUsuario": "grtgh",
+      "password": "1234",
+      "id": 4
     }
   ]
 }
