@@ -1,28 +1,87 @@
 <ng-container *ngIf="hay == 'false' && token == ''; else login">
-    <div class="example-container">
+
+
+    <header>
+        <div class="submenu">
+            <div class="container">
+                <div class="row center-xs">
+                    <div class="col-xs">
+                        <nav class="nav_cerrar">
+                            <div class="titulo">
+                                <h1><b>DICCIONARIO</b></h1>
+                            </div>
+                            <div>
+
+                                <a [routerLink]="['login']" [routerLinkActive]="['active']">
+                                    INICIAR SESIÓN</a>
+
+                                <a [routerLink]="['registro']" [routerLinkActive]="['active']">
+                                    REGISTRATE </a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- <div class="log-menu">
         <mat-toolbar class="example-toolbar" style="background-color: rgb(116, 178, 240);">
             <a class="example-app-name ">DICCIONARIO</a>
-            <nav role="navigation" style="right: 0; margin-right: 50px; display: flex; position: absolute;">
-                <ul style="list-style: none; display: inline-flex;">
-                    <a mat-raised-button color="#264D73" [routerLink]="['inicio']" [routerLinkActive]="['active']">
-                        INICIO </a>
-                    <a mat-raised-button color="#264D73" [routerLink]="['login']" [routerLinkActive]="['active']">
-                        INICIAR SESIÓN </a>
-                    <a mat-raised-button color="#264D73" [routerLink]="['registro']" [routerLinkActive]="['active']">
-                        REGISTRATE </a>
-                </ul>
+            <nav role="navigation" class="menu col-xs-12 col-sm-8 center-xs end-sm">
+
+                <a mat-raised-button color="#264D73" [routerLink]="['inicio']" [routerLinkActive]="['active']">
+                    INICIO </a>
+                <a mat-raised-button color="#264D73" [routerLink]="['login']" [routerLinkActive]="['active']">
+                    INICIAR SESIÓN </a>
+                <a mat-raised-button color="#264D73" [routerLink]="['registro']" [routerLinkActive]="['active']">
+                    REGISTRATE </a>
+
             </nav>
         </mat-toolbar>
-    </div>
+    </div> -->
 </ng-container>
 
 
 <ng-template #login>
-    <div class="example-container">
+
+    <header>
+        <div class="submenu">
+            <div class="container">
+                <div class="row center-xs">
+                    <div class="col-xs">
+                        <nav class="nav_cerrar">
+                            <div>
+                                <a [routerLink]="['inicio']" [routerLinkActive]="['active']">
+                                    INICIO </a>
+                                <a [routerLink]="['espanol']" [routerLinkActive]="['active']">
+                                    ESPAÑOL </a>
+                                <a [routerLink]="['ingles']" [routerLinkActive]="['active']">
+                                    INGLÉS </a>
+                            </div>
+
+                            <!-- <div class="titulo">
+                                <h1><b>DICCIONARIO</b></h1>
+                                
+                            </div> -->
+
+                            <div><a [routerLink]="['inicio']" (click)="logout()"> CERRAR SESIÓN </a></div>
+
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <!-- <div class="example-container">
         <mat-toolbar class="example-toolbar" style="background-color: rgb(116, 178, 240);">
             <a class="example-app-name ">DICCIONARIO</a>
-            <a class="example-app-name ">| Bienvenido</a>
-            
+            <a class="example-app-name ">| Bienvenid@</a>
+
             <nav role="navigation" style="right: 0; margin-right: 10px; margin-left: -20px; display: flex;">
                 <ul style="">
                     <a mat-raised-button color="#264D73" (click)="logout()"> CERRAR SESIÓN </a>
@@ -40,5 +99,5 @@
                 </ul>
             </nav>
         </mat-toolbar>
-    </div>
+    </div> -->
 </ng-template>

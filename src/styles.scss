@@ -19,8 +19,8 @@ button {
     margin-top: 10px;
   }
   button:hover {
-    background-color: #264D73;
-    color: white;
+    background-color: #96b4d1;
+    color: rgb(0, 0, 0);
   }
   button:disabled {
     background-color: #eee;
@@ -34,9 +34,8 @@ button {
     margin-right: 10px;
     margin-top: 10px;
     display: inline-block;
-    background-color: #264D73;
+    //background-color: #264D73;
     color: #3d3d3d;
-    border-radius: 4px;
   }
   
   nav a:hover {

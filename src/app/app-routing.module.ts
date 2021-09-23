@@ -45,7 +45,8 @@ const routes: Routes = [
   },
   {
     path:'inicio',
-    component: InicioComponent
+    component: InicioComponent,
+    canActivate:[AuthGuard]
 
   }, {
     path: 'login',
