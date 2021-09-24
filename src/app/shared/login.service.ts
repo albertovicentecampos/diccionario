@@ -47,6 +47,7 @@ export class LoginService {
       this.nombre.emit(this.user.name)
     });
 
+    
     this.router.navigate(["/"]);
 
   }

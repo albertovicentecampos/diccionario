@@ -1,7 +1,6 @@
 <ng-container *ngIf="barra == 'false'; else login">
-
     <header>
-        <div class="submenu">
+        <div appFondoBarra class="submenu">
             <div class="container">
                 <div class="row center-xs">
                     <div class="col-xs">
@@ -10,12 +9,8 @@
                                 <h1><b>DICCIONARIO</b></h1>
                             </div>
                             <div>
-
-                                <a [routerLink]="['login']" [routerLinkActive]="['active']">
-                                    INICIAR SESIÓN</a>
-
-                                <a [routerLink]="['registro']" [routerLinkActive]="['active']">
-                                    REGISTRATE </a>
+                                <a [routerLink]="['login']" [routerLinkActive]="['active']">INICIAR SESIÓN</a>
+                                <a [routerLink]="['registro']" [routerLinkActive]="['active']">REGISTRATE </a>
                             </div>
                         </nav>
                     </div>
@@ -28,28 +23,18 @@
 
 <ng-template #login>
     <header>
-        <div class="submenu">
+        <div appFondoBarra class="submenu">
             <div class="container">
                 <div class="row center-xs">
                     <div class="col-xs">
                         <nav class="nav_cerrar">
                             <div>
-                                <a [routerLink]="['inicio']" [routerLinkActive]="['active']">
-                                    INICIO </a>
-                                <a [routerLink]="['espanol']" [routerLinkActive]="['active']">
-                                    ESPAÑOL </a>
-                                <a [routerLink]="['ingles']" [routerLinkActive]="['active']">
-                                    INGLÉS </a>
+                                <a [routerLink]="['inicio']" [routerLinkActive]="['active']">INICIO</a>
+                                <a [routerLink]="['espanol']" [routerLinkActive]="['active']">ESPAÑOL</a>
+                                <a [routerLink]="['ingles']" [routerLinkActive]="['active']">INGLÉS</a>
                             </div>
 
-                            <!-- <div class="titulo">
-                                <h1><b>DICCIONARIO</b></h1>
-                                
-                            </div> -->
-
                             <div><a [routerLink]="['inicio']" (click)="logout()"> CERRAR SESIÓN </a></div>
-
-
                         </nav>
                     </div>
                 </div>

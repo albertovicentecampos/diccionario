@@ -1,7 +1,3 @@
-// a {
-//     margin-left: 5px;
-// }
-
 * {
     margin: 0;
     padding: 0;
@@ -10,10 +6,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background: #f2f2f2;
-    font-family: "Open Sans", sans-serif;
-}
 
 header {
     color: rgb(126, 176, 241);
@@ -30,47 +22,6 @@ nav ul {
 
 nav li {
     list-style:none
-}
-
-.push-right {
-
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    margin-top: 20px;
-    margin-right: 25px;
-    margin-left: 35px;
-    
-}
-
-
-.example-toolbar {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    background: #00171f;
-}
-
-.logo-menu h2 {
-    font-weight: 300;
-    font-size: 30px;
-}
-
-.logo-menu .menu a {
-    display: inline-block;
-    padding: 40px 20px;
-}
-
-.logo-menu .menu a:hover {
-    border-bottom: 4px solid #ff9f1c;
-    padding-bottom: 36px;
-}
-
-.submenu {
-
-    background: #003459;
 }
 
 

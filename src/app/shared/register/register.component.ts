@@ -53,9 +53,6 @@ export class RegisterComponent implements OnInit {
 
       })
       
-
-      //console.log(RegisterComponent.usuarios);
-     
     }
     else
       alert("Las contraseñas no coinciden");

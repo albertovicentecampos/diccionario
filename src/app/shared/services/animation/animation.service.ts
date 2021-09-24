@@ -5,8 +5,9 @@ import { Injectable, Output,  EventEmitter } from '@angular/core';
 })
 export class AnimationService {
 
-  animacion: boolean = false; 
+  animacion: boolean = false;  
   an: EventEmitter<boolean> = new EventEmitter();
+ 
 
   constructor() { }
 
@@ -20,5 +21,6 @@ export class AnimationService {
       this.an.emit(this.animacion)
   }, 3000);
   }
+
 
 }

@@ -8,7 +8,7 @@
 
             <mat-card-title>
                 <a style="list-style-type: none;" >
-                    <h1> <a [routerLink]="['../palabra/'+palabra.palabra]">{{palabra.palabra}}</a></h1>
+                    <h1> <a [routerLink]="['../palabra/'+palabra.palabra]">{{palabra.palabra | upperCase }}</a></h1>
                 </a>
 
                 <p class="descripcion">{{palabra.descripcion}}</p>
@@ -27,7 +27,7 @@
                     <div class="example-element-description" *ngFor="let p of palabrasIng">
                         <p style="margin: 10px;">
                             <a style="list-style-type: none;">
-                               <h1> <a [routerLink]="['/ingles/palabra/'+p.palabra]">{{p.palabra}}</a></h1>
+                               <h1> <a [routerLink]="['/ingles/palabra/'+p.palabra]">{{p.palabra | upperCase}}</a></h1>
                             </a>
                         </p>
                     </div>

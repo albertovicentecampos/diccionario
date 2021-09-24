@@ -11,26 +11,26 @@ import { LogService } from '../login/login.component';
 export class InicioComponent implements OnInit {
 
   entrar: boolean = false;
-  nombreU: string = ""
-  constructor(private loginService: LoginService, 
+  nombreUser: string | null = ""
+
+  constructor(private loginService: LoginService,
     private route: Router,
     private logService: LogService) { }
 
   ngOnInit(): void {
+    this.loginService.nombre.subscribe(v => {
+      console.log("entra")
+      localStorage.setItem('nombreUser', v)
 
-    this.logService.change.subscribe(valor => {
-      console.log("VALOOOOOOR "+ valor)
-      this.entrar = valor; 
-
-      this.logService.nombre.subscribe(v=>{
-        console.log("Nombre: "+ v)
-        this.nombreU = v
-      })
     })
-    
+    this.logService.nombre.subscribe(n => {
+      console.log("entra")
+      localStorage.setItem('nombreUser', n)
 
-    
+    })
 
+
+    this.nombreUser = localStorage.getItem('nombreUser')
   }
 
 }

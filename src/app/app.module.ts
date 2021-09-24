@@ -80,6 +80,8 @@ import { RegisterComponent } from './shared/register/register.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 import { environment } from 'src/environments/environment';
+import { FondoBarraDirective } from './shared/directives/fondo-barra.directive';
+import { UpperCasePipe } from './shared/pipes/upper-case.pipe';
 
 //import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 //import {MatDialogRef} from '@angular/material/dialog';
@@ -112,7 +114,9 @@ const CLIENT_ID = environment.client_Id;
     VentanaBorrarComponent,
     LoginComponent,
      RegisterComponent,
-     LoaderComponent
+     LoaderComponent,
+     FondoBarraDirective,
+     UpperCasePipe
   ],
   imports: [
     FormsModule,

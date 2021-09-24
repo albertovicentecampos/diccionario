@@ -79,13 +79,11 @@ export class LoginComponent implements OnInit {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
     await new Promise(f => setTimeout(f, 2000));
 
-    // this.logService.inicia();
     this.loginService.iniciarGoogle();
     this.animationService.realizarAnimacion();
 
-    // this.route.navigate(['/inicio']);
-    // this.mensaje("Inicio de sesión realizado satisfactoriamente")
-    //location.reload()
+    
+    
 
   }
 
@@ -98,13 +96,14 @@ export class LoginComponent implements OnInit {
 
 }
 
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class LogService {
-  isLog = false;
-  @Output() change: EventEmitter<any> = new EventEmitter();
 
+  @Output() change: EventEmitter<any> = new EventEmitter();
   @Output() nombre: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
@@ -112,13 +111,13 @@ export class LogService {
   inicia() {
     localStorage.setItem('hay', "true")
     var valor = localStorage.getItem('hay')
-    //this.isLog = true;
     this.change.emit(valor);
   }
 
   enviarNombre(n: string) {
     localStorage.setItem('nombre', n)
     var nombre = localStorage.getItem('nombre')
+    console.log("entra")
     this.nombre.emit(nombre);
   }
 
