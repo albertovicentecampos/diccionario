@@ -18,7 +18,8 @@ export class LateralComponent implements OnInit {
   entra: boolean = false;
   nombreUs: any = ""
   nombre: any = ""
-  hay: any = ''
+  hay: any = 'false'
+  barra: any = 'false'
   token: any = ''
   public user: SocialUser = new SocialUser;
 
@@ -30,10 +31,17 @@ export class LateralComponent implements OnInit {
     private animationService: AnimationService,
     private authService: SocialAuthService) {
 
+      //localStorage.setItem('hay','')
+      //localStorage.setItem('token','')
+
+      //localStorage.setItem('barra','false')
+
     this.logService.change.subscribe(valor => {
       localStorage.setItem('hay', valor)
       console.log("holaaas" + localStorage.getItem('hay'))
       this.hay = localStorage.getItem('hay')
+      localStorage.setItem('barra','true')
+      this.barra = localStorage.getItem('hay')
     })
 
     this.hay = localStorage.getItem('hay')
@@ -41,31 +49,14 @@ export class LateralComponent implements OnInit {
 
     this.loginService.change_token.subscribe(valor => {
       localStorage.setItem('token', valor)
+      localStorage.setItem('barra','true')
+      this.barra = localStorage.getItem('hay')
       this.token = localStorage.getItem('token')
-
-      // if (this.token != "") {
-      //   console.log("yuju")
-      //   this.loginService.nombre.subscribe(nombre => {
-      //     localStorage.setItem('nombre', nombre)
-      //     console.log(nombre)
-      //     this.nombreUs = localStorage.getItem('nombre')
-      //   })
-
-      //   this.nombreUs = localStorage.getItem('nombre')
-
-      // } else { // se registra como usuario normal
-      //   this.logService.nombre.subscribe(nom => {
-      //     localStorage.setItem('nom', nom)
-      //     this.nombre = localStorage.getItem('nom')
-      //   })
-
-      //   this.nombre = localStorage.getItem('nom')
-      // }
-
 
     })
 
     this.token = localStorage.getItem('token')
+    this.barra = localStorage.getItem('barra')
 
   }
 
@@ -82,6 +73,10 @@ export class LateralComponent implements OnInit {
       //localStorage.removeItem('hay');
       console.log("valor de salida: " + localStorage.getItem('hay'))
       //this.authService.signOut();
+
+      localStorage.setItem('barra','false')
+      this.barra = localStorage.getItem('barra')
+
       localStorage.setItem('nom', "")
       localStorage.removeItem('nom')
       this.hay = localStorage.getItem('hay')
@@ -96,6 +91,10 @@ export class LateralComponent implements OnInit {
       console.log("Entraaadef")
       localStorage.setItem('nombre', "")
       //localStorage.removeItem('nombre')
+
+      localStorage.setItem('barra','false')
+      this.barra = localStorage.getItem('barra')
+
       this.authService.signOut();
       localStorage.setItem('token', "")
       //localStorage.removeItem('token')

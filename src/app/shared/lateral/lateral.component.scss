@@ -73,14 +73,18 @@ nav li {
     background: #003459;
 }
 
+
 .submenu nav a {
     padding: 26px 20px;
     display: inline-block;
+    transition: all 0.25s;
+
 }
 
 .submenu nav a:hover {
-    border-bottom: 10px solid #6b9ee0;
+    border-bottom: 10px solid #85b7f8;
     padding-bottom: 16px;
+    transition: all 0.25s;
 }
 
 

@@ -1,5 +1,4 @@
-<ng-container *ngIf="hay == 'false' && token == ''; else login">
-
+<ng-container *ngIf="barra == 'false'; else login">
 
     <header>
         <div class="submenu">
@@ -24,27 +23,10 @@
             </div>
         </div>
     </header>
-
-    <!-- <div class="log-menu">
-        <mat-toolbar class="example-toolbar" style="background-color: rgb(116, 178, 240);">
-            <a class="example-app-name ">DICCIONARIO</a>
-            <nav role="navigation" class="menu col-xs-12 col-sm-8 center-xs end-sm">
-
-                <a mat-raised-button color="#264D73" [routerLink]="['inicio']" [routerLinkActive]="['active']">
-                    INICIO </a>
-                <a mat-raised-button color="#264D73" [routerLink]="['login']" [routerLinkActive]="['active']">
-                    INICIAR SESIÓN </a>
-                <a mat-raised-button color="#264D73" [routerLink]="['registro']" [routerLinkActive]="['active']">
-                    REGISTRATE </a>
-
-            </nav>
-        </mat-toolbar>
-    </div> -->
 </ng-container>
 
 
 <ng-template #login>
-
     <header>
         <div class="submenu">
             <div class="container">
@@ -75,29 +57,4 @@
         </div>
     </header>
 
-
-
-    <!-- <div class="example-container">
-        <mat-toolbar class="example-toolbar" style="background-color: rgb(116, 178, 240);">
-            <a class="example-app-name ">DICCIONARIO</a>
-            <a class="example-app-name ">| Bienvenid@</a>
-
-            <nav role="navigation" style="right: 0; margin-right: 10px; margin-left: -20px; display: flex;">
-                <ul style="">
-                    <a mat-raised-button color="#264D73" (click)="logout()"> CERRAR SESIÓN </a>
-                </ul>
-            </nav>
-
-            <nav role="navigation" style="right: 0; margin-right: 50px; display: flex; position: absolute;">
-                <ul style="list-style: none; display: inline-flex;">
-                    <a mat-raised-button color="#264D73" [routerLink]="['inicio']" [routerLinkActive]="['active']">
-                        INICIO </a>
-                    <a mat-raised-button color="#264D73" [routerLink]="['espanol']" [routerLinkActive]="['active']">
-                        ESPAÑOL </a>
-                    <a mat-raised-button color="#264D73" [routerLink]="['ingles']" [routerLinkActive]="['active']">
-                        INGLÉS </a>
-                </ul>
-            </nav>
-        </mat-toolbar>
-    </div> -->
 </ng-template>
