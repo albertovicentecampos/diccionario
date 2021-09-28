@@ -46,6 +46,7 @@ export class ListaEspanolComponent implements OnInit {
       });
   
       dialogRef.afterClosed().subscribe(result => {
+        location.reload();
         if (result) {
         
           //this.recibirPadre(result)

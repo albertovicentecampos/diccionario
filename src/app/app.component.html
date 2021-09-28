@@ -1,7 +1,7 @@
 <div>
-    <app-lateral></app-lateral>
+    <app-lateral *ngIf="!animacion"></app-lateral>
     <app-loader *ngIf="animacion"></app-loader>
     <router-outlet *ngIf="!animacion"></router-outlet>
-    <app-footer *ngIf="!animacion && url != '/espanol/palabraslista' "></app-footer>
+    <app-footer *ngIf="!animacion"></app-footer>
 </div>
 
